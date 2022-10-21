@@ -159,7 +159,11 @@
 
 ![image](https://user-images.githubusercontent.com/62867182/197201844-5c952782-3147-4065-b1b2-4555dc75028c.png)
 
-	
+
+
+<br>
+
+<h2>기능 주의 사항</h2>
 <ul>
 <li>
 
@@ -220,7 +224,7 @@ public class UserAuthHandler implements HandlerInterceptor {
 <br>
 <br>
 <li>
-<h3>로그인한 계정의 정보를 유지하기 위해 세션을 사용하였으며 로그인 성공시 세션을 생성하였음</h3>
+<h3>로그인한 계정의 정보를 유지하기 위해 세션을 사용하였으며 로그인 성공시 세션을 생성</h3>
 </li>
 
 ```java
