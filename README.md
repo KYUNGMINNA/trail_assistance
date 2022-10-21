@@ -53,9 +53,8 @@
 
 <br>
 <h2>사용자 화면 설명</h2>
-<ul>
 
-<li>
+
 <h2> 메인 화면</h2>
 
 
@@ -114,7 +113,7 @@
 
 
 ![image](https://user-images.githubusercontent.com/62867182/197191552-7f946162-2ab6-4a81-b9d1-a029315b3d08.png)
-</li>
+
 
 
 
@@ -129,6 +128,7 @@
 ![image](https://user-images.githubusercontent.com/62867182/197193384-8a408ac5-8629-45ac-9714-99eccdc5af9e.png)
 
 <h3>관리자 조력자 신청 심사</h3>
+	
 ![image](https://user-images.githubusercontent.com/62867182/197194401-b4751ab6-f936-4828-882b-615c86241041.png)
 
 ![image](https://user-images.githubusercontent.com/62867182/197194519-889cda6f-19cd-4bd0-b980-37f7fac4c7a6.png)
@@ -141,7 +141,25 @@
 
 ![image](https://user-images.githubusercontent.com/62867182/197194930-85b86e65-c970-4af2-abb8-cc2eba2406c5.png)
 
+<h3>조력자 모집 공고 등록</h3>
+	
+![image](https://user-images.githubusercontent.com/62867182/197199960-bf12c493-3b0f-4e98-894c-6237d32d6de2.png)
+![image](https://user-images.githubusercontent.com/62867182/197199982-0837217a-dc27-49c7-8aa7-694511a8cd0c.png)
 
+<h3>조력자 모집 공고 세부 내용</h3>
+
+![image](https://user-images.githubusercontent.com/62867182/197200089-6ecc2467-05d8-44da-8f02-99f9e230120c.png)
+
+
+<h3>조력자 모집 공고 내용 수정</h3>
+
+![image](https://user-images.githubusercontent.com/62867182/197201540-019124b9-61e7-4c8f-a08a-cbb1d945423a.png)
+
+<h3>관리자 심사 이후 사용자의 마이페이지 화면</h3>
+
+![image](https://user-images.githubusercontent.com/62867182/197201844-5c952782-3147-4065-b1b2-4555dc75028c.png)
+
+	
 <ul>
 <li>
 
