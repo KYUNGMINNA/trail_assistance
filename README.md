@@ -34,7 +34,7 @@
 <h2>프로젝트 개발 환경</h2>
 <h3>Front</h3>
 <ul>
-<h4>HTML5&CSS3&JS6</h4>
+<h4>HTML5&CSS3&JS</h4>
 </ul>
 <h3>Back</h3>
 <ul>
