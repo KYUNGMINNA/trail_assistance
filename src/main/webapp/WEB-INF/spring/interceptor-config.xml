@@ -9,6 +9,8 @@
 	<!--로그인 안했을 시  로그인 하게끔 함-->
 	<bean id="userAuth" class="com.assistance.trial.util.interceptor.UserAuthHandler"/>
 	
+	<bean id="userLoginSuccessHandler" class="com.assistance.trial.util.interceptor.UserLoginSuccessHandler"/>
+	
 	
 	
 	<mvc:interceptors>
@@ -23,6 +25,14 @@
             
 				<ref bean="userAuth"/>
 			</mvc:interceptor>
+			
+			
+			<!-- 로그인 이후에 실행되는 postHandler  -->
+			<mvc:interceptor>
+				<mvc:mapping path="/account/userlogin"/>
+				<ref bean="userLoginSuccessHandler"/>
+			</mvc:interceptor>
+			
 			
 		
 	</mvc:interceptors>
