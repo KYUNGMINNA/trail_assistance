@@ -12,25 +12,35 @@
 
 <br>
 <h2>프로젝트 주요 기능</h2>
+
 <h3>공통 기능</h3>
-
-[메인 화면](#메인-화면)
-
+<ul>
+	
 [로그인](#로그인)
 
+[조력자 모집 공고 확인](#조력자-모집-공고)
+
+[공지사항 확인](#공지사항)
+
+[FAQ 확인](#faq)
+
+</ul>
 
 <br>
 <h3>사용자</h3>
+<ul>
 
+[사용자(비로그인 포함)메인화면](#메인-화면)
+	
 [회원가입](#회원-가입)
-
+	
 [조력자 신청](#조력자-신청)
 
 [개인 조력자 유형 선택](#개인-조력자-유형-선택)
 
 [기관 조력자 유형 선택](#기관-조력자-유형-선택)
 
-[조력자 신청 개인 정보 작성](#조력자-신청-개인-정보-작성)
+[조력자 신청 개인 정보 작성](#조력자-개인-정보-작성)
 
 [마이페이지](#나의-접수-내역-조회)
 
@@ -39,10 +49,11 @@
 
 <h4>1:1문의 등록</h4>
 
+</ul>
 <h3>관리자</h3>
 <ul>
 
-[관리자 메인 화면)(#-관리자-메인-화면)
+[관리자 메인 화면)(#관리자-메인-화면)
 	
 [조력자 신청자 심사](#관리자-조력자-신청-심사)
 	
@@ -76,12 +87,37 @@
 </ul>
 
 
+<br>
+<h1>공통 화면</h1>
 
 <br>
-<h2>사용자 화면 설명</h2>
 
+<h2>로그인</h2>
 
-<h2> 메인 화면</h2>
+![image](https://user-images.githubusercontent.com/62867182/197180584-f4962113-f861-413a-a690-11531ad84646.png)
+
+<h2>조력자 모집 공고</h2>
+
+![image](https://user-images.githubusercontent.com/62867182/197320973-78df5333-968d-4ee7-a875-dd784b933eff.png)
+
+![image](https://user-images.githubusercontent.com/62867182/197320986-3d471b43-a28c-4021-b2db-272adb34761c.png)
+
+<h2>공지사항</h2>
+
+![image](https://user-images.githubusercontent.com/62867182/197321010-61475e9d-6ab2-4be2-b404-41cd3017809b.png)
+
+![image](https://user-images.githubusercontent.com/62867182/197321020-ad36a51d-2840-439b-97a2-ec7a0c8b24d6.png)
+
+<h2>FAQ</h2>
+
+![image](https://user-images.githubusercontent.com/62867182/197321031-10e69881-c94e-46dc-9195-7b6a883e2a13.png)
+
+![image](https://user-images.githubusercontent.com/62867182/197321038-cf0ffc07-ddbd-4df1-885f-57a68074648c.png)
+
+<br>
+
+# 사용자 화면 설명
+## 메인 화면
 
 
 ![image](https://user-images.githubusercontent.com/62867182/197181069-88c118d6-e192-4e1b-a071-bd736aaf5598.png)
@@ -119,7 +155,7 @@
 
 
 <br>
-<h3>조력자 신청 개인 정보 작성  </h3>
+<h3>조력자 개인 정보 작성</h3>
 
 ![image](https://user-images.githubusercontent.com/62867182/197181389-68c0829a-cac3-42b2-a9f6-39865a58d724.png)
 ![image](https://user-images.githubusercontent.com/62867182/197191817-4bfce57c-6d57-4f43-acc6-a423eff97479.png)
