@@ -19,9 +19,9 @@ public class FileDownload extends AbstractView {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+
 		setContentType("application/download; charset=UTF-8");
-		
+
 		//파일 정보 Load
 		Map<String, Object> fileMap = (Map<String, Object>) model.get("fileMap");
 		String filePath = (String) fileMap.get("filePath");
@@ -31,21 +31,21 @@ public class FileDownload extends AbstractView {
 
 		response.setContentType(getContentType());
 		response.setContentLength((int) file.length());
-		
+
 		String userAgent = request.getHeader("User-Agent");
-		
+
 		if(userAgent.indexOf("MSIE") != -1) {
 			fileOriginalName = URLEncoder.encode(fileOriginalName,"UTF-8");
 		}else {
 			fileOriginalName = new String(fileOriginalName.getBytes("UTF-8"), "ISO-8859-1");
 		}
-		
+
 		response.setHeader("Content-Transfer-Encoding", "binary;");
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileOriginalName + "\"");
-		
+
 		OutputStream out = response.getOutputStream();
 		FileInputStream fis = null;
-		
+
 		try {
 			fis = new FileInputStream(file);
 			FileCopyUtils.copy(fis, out);
@@ -61,6 +61,6 @@ public class FileDownload extends AbstractView {
 			}
 			out.flush();
 		}
-		
+
 	}
 }
