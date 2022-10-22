@@ -21,8 +21,6 @@
 				<mvc:mapping path="/admin/*"/>
 				<mvc:mapping path="/mypage/*"/>
 				<mvc:mapping path="/oneboard/*" />
-
-            
 				<ref bean="userAuth"/>
 			</mvc:interceptor>
 			
