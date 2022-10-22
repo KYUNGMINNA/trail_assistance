@@ -88,4 +88,9 @@ public class AccountService implements IAccountService {
 	public int selectaccid(String email) {
 		return mapper.selectaccid(email);
 	}
+
+	@Override
+	public AccountVO login(String account, String password) {
+		return mapper.login(account, password);
+	}
 }

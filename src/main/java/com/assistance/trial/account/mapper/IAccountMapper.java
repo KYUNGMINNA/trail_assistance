@@ -1,5 +1,7 @@
 package com.assistance.trial.account.mapper;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.assistance.trial.command.AccountVO;
 
 public interface IAccountMapper {
@@ -16,6 +18,10 @@ public interface IAccountMapper {
 	//회원 정보 조회 기능
 	AccountVO selectOne(String account);
 
+
+	//로그인
+	AccountVO login(@Param("account")String account,@Param("password")String password);
+
 	//회원 탈퇴 기능
 	void delete(String account);
 
@@ -31,7 +37,7 @@ public interface IAccountMapper {
 	//0825 최필규 추가
 	//비밀번호 확인
 	int pwCheck(AccountVO vo);
-	
+
 	//0831
 	int selectaccid(String email);
 }

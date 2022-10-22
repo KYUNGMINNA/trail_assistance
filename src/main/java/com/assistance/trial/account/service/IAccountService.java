@@ -1,5 +1,7 @@
 package com.assistance.trial.account.service;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.assistance.trial.command.AccountVO;
 
 public interface IAccountService {
@@ -15,6 +17,10 @@ public interface IAccountService {
 	
 	//회원 정보 조회 기능
 	AccountVO selectOne(String account);
+	
+
+	//로그인
+	AccountVO login(@Param("account")String account,@Param("password")String password);
 	
 	//회원 탈퇴 기능
 	void delete(String account);
