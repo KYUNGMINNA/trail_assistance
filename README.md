@@ -24,6 +24,10 @@
 
 [FAQ 확인](#faq)
 
+[1:1문의](#1:1)
+	
+
+	
 </ul>
 
 <br>
@@ -52,7 +56,7 @@
 <h3>관리자</h3>
 <ul>
 
-[관리자 메인 화면)(#관리자-메인-화면)
+[관리자 메인 화면](#관리자-메인-화면)
 	
 [조력자 신청자 심사](#관리자-조력자-신청-심사)
 	
@@ -112,6 +116,10 @@
 ![image](https://user-images.githubusercontent.com/62867182/197321031-10e69881-c94e-46dc-9195-7b6a883e2a13.png)
 
 ![image](https://user-images.githubusercontent.com/62867182/197321038-cf0ffc07-ddbd-4df1-885f-57a68074648c.png)
+
+<h2>1:1</h2>
+
+![image](https://user-images.githubusercontent.com/62867182/197323694-ed92c55e-b8a2-4122-b689-f51235185e11.png)
 
 <br>
 
