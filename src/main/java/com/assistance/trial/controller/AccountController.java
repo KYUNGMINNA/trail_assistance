@@ -44,7 +44,6 @@ public class AccountController {
 	@Autowired
 	private MailSendService mailService;
 
-	// 2022-08-24 성민호 추가
 	@Autowired
 	private IAdminService adminService;
 
@@ -57,7 +56,6 @@ public class AccountController {
 	@Autowired
 	private IFormService formService;
 
-	//회원 가입 화면으로 이동
 	@RequestMapping("/user_join")
 	public String user_join() {
 		System.out.println("user_join 요청이 들어옴!");
@@ -127,49 +125,38 @@ public class AccountController {
 	public String login() {
 		return "account/login";
 	}
-
-	//나경민
 	@PostMapping("/userlogin")
-	public String loginCheck(String username,String pw,Model model) {
-	
-		model.addAttribute("user", service.selectOne(username));
-		return "/home";
+	public String loginCheck(String username,String password,Model model) { 
+
+		model.addAttribute("user", service.login(username,password));
+
+		return "home"; 
 	}
 
 
-	// 2022-08-24 성민호 수정
 
-	@ResponseBody
-	@PostMapping("/login")
-	public String loginCheck(@RequestBody Map<String, String> param,
-			HttpSession session,
-			HttpServletResponse response) {
-		System.out.println("/find/login POST 요청 들어옴");
-		System.out.println("param : " + param);
-
-		///0901 ㅅ세ㅕㄴ 유지시간 늘리기
-		session.setMaxInactiveInterval(3600);
-		/////////////////////////
-
-
-
-		// 프론트에서 받아온 멤버의 ID를 매개변수로 넘겨 DB에서 일치하는 ID가 존재하는지 검색
-		AccountVO accVo = service.selectOne(param.get("account"));
-		// 아이디 존재하고 비밀번호도 일치할 때
-		if (accVo != null) {
-			if (param.get("password").equals(accVo.getPassword())) {
-				// 로그인 성공할 경우 세션 정보 생성
-				session.setAttribute("login", accVo);
-
-				return "loginSuccess";
-			} else {
-				System.out.println("프론트측 입력값 : " + param.get("password"));
-				System.out.println("db측 비번 : " + accVo.getPassword());
-				return "pwFail";
-			}
-		}
-		return "idFail";
-	}
+	/*
+	 * @ResponseBody
+	 * 
+	 * @PostMapping("/login") public String loginCheck(@RequestBody Map<String,
+	 * String> param, HttpSession session, HttpServletResponse response) {
+	 * System.out.println("/find/login POST 요청 들어옴"); System.out.println("param : "
+	 * + param);
+	 * 
+	 * ///0901 ㅅ세ㅕㄴ 유지시간 늘리기 session.setMaxInactiveInterval(3600);
+	 * /////////////////////////
+	 * 
+	 * 
+	 * 
+	 * // 프론트에서 받아온 멤버의 ID를 매개변수로 넘겨 DB에서 일치하는 ID가 존재하는지 검색 AccountVO accVo =
+	 * service.selectOne(param.get("account")); // 아이디 존재하고 비밀번호도 일치할 때 if (accVo !=
+	 * null) { if (param.get("password").equals(accVo.getPassword())) { // 로그인 성공할
+	 * 경우 세션 정보 생성 session.setAttribute("login", accVo);
+	 * 
+	 * return "loginSuccess"; } else { System.out.println("프론트측 입력값 : " +
+	 * param.get("password")); System.out.println("db측 비번 : " +
+	 * accVo.getPassword()); return "pwFail"; } } return "idFail"; }
+	 */
 
 
 	@GetMapping("/logout") 
@@ -189,14 +176,6 @@ public class AccountController {
 	public String helperApproval() {
 		return "account/helper_approval";
 	}
-
-
-
-
-
-
-
-
 
 
 
