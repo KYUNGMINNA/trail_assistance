@@ -1,68 +1,63 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-    <!-- 개인 정의 스타일 추가 -->
-    <style>
-        .container {
-            text-align: center;
-        }
-        .table > tbody > tr > th {
-            text-align: center;
-            vertical-align: middle;
-        }
-        .table > tbody > tr > td {
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
+<!-- 개인 정의 스타일 추가 -->
+<style>
+.container {
+	text-align: center;
+}
 
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
-    <div class="container" id="wrapper">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">비밀번호 재설정</div>
-                </div>
+.table>tbody>tr>th {
+	text-align: center;
+	vertical-align: middle;
+}
 
-                <div style="padding-top:30px" class="panel-body">
+.table>tbody>tr>td {
+	text-align: center;
+	vertical-align: middle;
+}
+</style>
 
-                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<div class="container" id="wrapper">
+	<div id="loginbox" style="margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">비밀번호 재설정</div>
+			</div>
 
-                    <form action="<c:url value="/account/reset_pw" />" method="POST" id="loginform" class="form-horizontal" role="form">
-						
-						<input id="user_id" type="hidden" class="form-control" name="userId" value="${account.account}">
-						
-						<strong id="pwChk"></strong>
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="user_pw" type="password" class="form-control" name="userPw" value=""
-                                placeholder="비밀번호 입력">
-                        </div>
-						
-						<strong id="pwChk2"></strong>
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
-                            <input id="user_pw_check" type="password" class="form-control" name="userPwCheck" value=""
-                                placeholder="비밀번호 확인">
-                        </div>
-                        
-                        <div style="margin-top:10px" class="form-group">
-                            <!-- Button -->
+			<div style="padding-top: 30px" class="panel-body">
 
-                            <div class="col-sm-12 controls">
-                            	<button id="pw-reset-btn" type="submit" form="loginform" class="btn btn-success disabled">초기화</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+				<div style="display: none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-    </div>
-     <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-	
-	<script>
+				<form action="<c:url value="/account/reset_pw" />" method="POST" id="loginform" class="form-horizontal" role="form">
+
+					<input id="user_id" type="hidden" class="form-control" name="userId" value="${account.account}"> <strong id="pwChk"></strong>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> <input id="user_pw" type="password" class="form-control" name="userPw" value="" placeholder="비밀번호 입력">
+					</div>
+
+					<strong id="pwChk2"></strong>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span> <input id="user_pw_check" type="password" class="form-control" name="userPwCheck" value="" placeholder="비밀번호 확인">
+					</div>
+
+					<div style="margin-top: 10px" class="form-group">
+						<!-- Button -->
+
+						<div class="col-sm-12 controls">
+							<button id="pw-reset-btn" type="submit" form="loginform" class="btn btn-success disabled">초기화</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+<script>
 	const getPwCheck = RegExp(/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/);
 	let chk1 = false, chk2 = false;
 

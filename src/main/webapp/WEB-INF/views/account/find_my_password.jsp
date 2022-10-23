@@ -1,78 +1,71 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-    <!-- 개인 정의 스타일 추가 -->
-    <style>
-        .container {
-            text-align: center;
-        }
-        .table > tbody > tr > th {
-            text-align: center;
-            vertical-align: middle;
-        }
-        .table > tbody > tr > td {
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
+<!-- 개인 정의 스타일 추가 -->
+<style>
+.container {
+	text-align: center;
+}
 
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
-    <div class="container"  id="wrapper">
+.table>tbody>tr>th {
+	text-align: center;
+	vertical-align: middle;
+}
 
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">비밀번호 찾기</div>
-                </div>
+.table>tbody>tr>td {
+	text-align: center;
+	vertical-align: middle;
+}
+</style>
 
-                <div style="padding-top:30px" class="panel-body">
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<div class="container" id="wrapper">
 
-                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+	<div id="loginbox" style="margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">비밀번호 찾기</div>
+			</div>
 
-                    <form action="<c:url value="/account/reset_my_password" />" method="POST" id="loginform" class="form-horizontal" role="form">
-						
-						<strong id="idChk"></strong>
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="user_id" type="text" class="form-control" name="userId" value=""
-                                placeholder="아이디 입력">
-                        </div>
-						
-						<strong id="emailChk"></strong>
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input id="user_email" type="text" class="form-control" name="userEmail" value=""
-                                placeholder="abc@naver.com">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" id="user_email_check_btn" type="button">전송</button>
-                                </span>
-                        </div>
+			<div style="padding-top: 30px" class="panel-body">
 
-						<strong id="emailCodeChk"></strong>
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <input id="user_email_check" type="text" class="form-control" name="password"
-                                placeholder="인증번호 입력">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" id="user_check_code_btn" type="button">인증번호 확인</button>
-                                </span>
-                        </div>
+				<div style="display: none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <div style="margin-top:10px" class="form-group">
-                            <!-- Button -->
+				<form action="<c:url value="/account/reset_my_password" />" method="POST" id="loginform" class="form-horizontal" role="form">
 
-                            <div class="col-sm-12 controls">
-                            	<button type="submit" form="loginform" class="btn btn-primary">다음 페이지</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
- <%@ include file="/WEB-INF/views/include/footer.jsp" %>
- 
+					<strong id="idChk"></strong>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> <input id="user_id" type="text" class="form-control" name="userId" value="" placeholder="아이디 입력">
+					</div>
+
+					<strong id="emailChk"></strong>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> <input id="user_email" type="text" class="form-control" name="userEmail" value="" placeholder="abc@naver.com"> <span class="input-group-btn">
+							<button class="btn btn-primary" id="user_email_check_btn" type="button">전송</button>
+						</span>
+					</div>
+
+					<strong id="emailCodeChk"></strong>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span> <input id="user_email_check" type="text" class="form-control" name="password" placeholder="인증번호 입력"> <span class="input-group-btn">
+							<button class="btn btn-primary" id="user_check_code_btn" type="button">인증번호 확인</button>
+						</span>
+					</div>
+
+					<div style="margin-top: 10px" class="form-group">
+						<!-- Button -->
+
+						<div class="col-sm-12 controls">
+							<button type="submit" form="loginform" class="btn btn-primary">다음 페이지</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
 <script>
 
 $(function() {

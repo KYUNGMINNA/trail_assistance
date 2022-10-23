@@ -1,87 +1,73 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 
-	<%@ include file="/WEB-INF/views/include/header.jsp" %>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-	<!--아이디 비밀번호 데이터 검증 추후 추가 예정-->
+<!--아이디 비밀번호 데이터 검증 추후 추가 예정-->
 
-	<div class="container-fluid" id="wrapper">
-		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4 user-join-form">
-				<div class="user-title">
-					<h1 style="text-align:center;">회원가입</h1>
+<div class="container-fluid" id="wrapper">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 user-join-form">
+			<div class="user-title">
+				<h1 style="text-align: center;">회원가입</h1>
+			</div>
+
+			<br>
+
+			<form action="" method="post" id="signUpForm">
+
+				<div class="form-group">
+					<label for="id">아이디</label> <strong id="idChk"></strong>
+					<div class="input-group">
+						<input type="text" name="account" class="form-control" id="user_id" placeholder="아이디를 입력하세요"> <span class="input-group-btn">
+							<button class="btn btn-primary" type="button" id="user_id_check_btn">중복 확인</button>
+						</span>
+					</div>
 				</div>
 
-				<br>
+				<div class="form-group">
+					<label for="password">비밀번호</label> <strong id="pwChk"></strong> <input type="password" name="memUserPw" id="user_pw" class="form-control" placeholder="비밀번호를 입력하세요">
+				</div>
 
-				<form action="" method="post" id="signUpForm">
+				<div class="form-group">
+					<label for="password-confrim">비밀번호 확인</label> <strong id="pwChk2"></strong> <input type="password" class="form-control" id="user_pw_check" placeholder="비밀번호를 확인해주세요.">
+				</div>
 
-					<div class="form-group">
-						<label for="id">아이디</label>
-						<strong id="idChk"></strong>
-						<div class="input-group">
-							<input type="text" name="account" class="form-control" id="user_id" placeholder="아이디를 입력하세요">
-							<span class="input-group-btn">
-								<button class="btn btn-primary" type="button" id="user_id_check_btn">중복 확인</button>
-							</span>
-						</div>
+				<div class="form-group email-form">
+					<label for="email">이메일</label> <strong id="emailChk"></strong>
+					<div class="input-group">
+						<input type="email" name="email" class="form-control" id="user_email" placeholder="abcd@naver.com"> <span class="input-group-btn">
+							<button class="btn btn-primary" type="button" id="user_email_check_btn">메일 인증</button>
+						</span>
 					</div>
-
-					<div class="form-group">
-						<label for="password">비밀번호</label>
-						<strong id="pwChk"></strong>
-						<input type="password" name="memUserPw" id="user_pw" class="form-control" 
-							placeholder="비밀번호를 입력하세요">
-					</div>
-
-					<div class="form-group">
-						<label for="password-confrim">비밀번호 확인</label>
-						<strong id="pwChk2"></strong>
-						<input type="password" class="form-control" id="user_pw_check"
-							placeholder="비밀번호를 확인해주세요.">
-					</div>
-
-					<div class="form-group email-form">
-						<label for="email">이메일</label>
-						<strong id="emailChk"></strong>
-						<div class="input-group">
-							<input type="email" name="email" class="form-control" id="user_email" placeholder="abcd@naver.com">
-							<span class="input-group-btn">
-								<button class="btn btn-primary" type="button" id="user_email_check_btn">메일 인증</button>
-							</span>
-						</div>
 
 					<div class="mail-check-box">
-						<label for="email-check-box">인증번호 확인</label>
-						<strong id="emailCodeChk"></strong>
+						<label for="email-check-box">인증번호 확인</label> <strong id="emailCodeChk"></strong>
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="인증번호를 입력하세요."
-								maxlength="6" disabled="disabled" id="user_email_check">
-							<span class="input-group-btn">
-									<button class="btn btn-primary" type="button" id="user_check_code_btn">인증 확인</button>
+							<input type="text" class="form-control" placeholder="인증번호를 입력하세요." maxlength="6" disabled="disabled" id="user_email_check"> <span class="input-group-btn">
+								<button class="btn btn-primary" type="button" id="user_check_code_btn">인증 확인</button>
 							</span>
 						</div>
 					</div>
-					</div>
+				</div>
 
-					<div class="form-group">
-						<button type="button" id="signup_btn" class="btn btn-lg btn-success btn-block">회원 가입</button>
-					</div>
+				<div class="form-group">
+					<button type="button" id="signup_btn" class="btn btn-lg btn-success btn-block">회원 가입</button>
+				</div>
 
-				</form>
-			</div>
-			<div class="col-md-4"></div>
+			</form>
 		</div>
+		<div class="col-md-4"></div>
 	</div>
-	
-	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+</div>
 
-	<!-- 약관동의 모달 체크박스 기능 추가 해야 함 -->
-	<script>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+<!-- 약관동의 모달 체크박스 기능 추가 해야 함 -->
+<script>
 	
 	// 제이쿼리 시작
 	$(function() {
