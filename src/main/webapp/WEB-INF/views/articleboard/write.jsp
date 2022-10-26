@@ -1,108 +1,79 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-<link
-	href="${pageContext.request.contextPath }/resources/css1/view_style.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css1/view_style.css" rel="stylesheet">
 
 
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<div class="container-fluid" id="wrapper">
+
+	<div class="row">
+		<div class="col-md-2"></div>
+
+		<div class="board-hon">
+			<div class="col-md-8 board-table">
 
 
-</head>
-<body>
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+				<div class="col-xs-12 col-md-12 write-wrap">
+					<div class="titlebox">
+						<h3>공고글 등록</h3>
+					</div>
 
+					<form action="<c:url value='/articleboard/registForm'/>" name="registForm" method="post">
+						<div class="contenIn">
+							<table class="table table-bordered"">
 
+								<tbody>
+									<tr>
+										<th>조력자</th>
+										<td colspan="5"><input class="form-control" id="title" name="article_title"></td>
+									</tr>
 
-		<div class="container-fluid" id="wrapper">
+									<tr>
+										<th>개인/기관</th>
+										<td><select class="form-control" name="article_type" style="width: 80px">
+												<option>개인</option>
+												<option>기관</option>
+										</select></td>
+										<th class="c-date">시작일</th>
+										<td><input type="datetime-local" class="form-control" name="start_date" id="currentDatetime" style="width: 120px"></td>
+										<th>마감일</th>
+										<td><input type="datetime-local" class="form-control" id="currentLocaltime" name="expired_date" style="width: 120px"></td>
 
-			<div class="row">
-			<div class="col-md-2"></div>
-
-
-				<div class="board-hon">
-					<div class="col-md-8 board-table">
-
-
-
-
-
-
-						<div class="col-xs-12 col-md-12 write-wrap">
-
-							<div class="titlebox">
-								<h3>
-									공고글 등록
-									</p>
-							</div>
-
-							<form action="<c:url value='/articleboard/registForm'/>"
-								name="registForm" method="post">
-
-								<div class="contenIn">
-									<table class="tableVer table-bordered">
-										<caption style="display: none">공고 게시글 상세정보 표</caption>
-										<tbody>
-											<tr>
-
-												<th class="title">조력자 유형</th>
-												<td colspan="6"><input class="form-control input-sm"
-													id="title" name="article_title"></td>
-
-											</tr>
-
-											<tr>
-												<th>개인/기관 분류</th>
-												<td><select class="form-control input-sm sel"
-													name="article_type">
-														<option>개인</option>
-														<option>기관</option>
-
-
-												</select></td>
-												<th class="c-date">공고 모집 시작일	</th>
-												<td colspan="2"><input type="datetime-local" class="form-control" name="start_date" id="currentDatetime"></td>
-												<th>공고 모집 마감일	</th>
-												<td><input type="datetime-local" class="form-control" id="currentLocaltime" name="expired_date"></td>
-
-
-											</tr>
-
-											
-
-
-										</tbody>
-
-										<tr>
-											<th>내용</th>
-											<td class="t-text" colspan="9"><textarea
-													name="article_content" class="form-control" rows="15"
-													id="content" cols="150" style="resize: none;"></textarea></td>
-										</tr>
-
-
-									</table>
-
-								</div>
+									</tr>
 
 
 
-							</form>
-							
-						<div class="butt">
-							<button class="btn" id="registBtn">등록</button>
-							<button class="btn" id="listBtn">목록</button>
-						</div>
+
+								</tbody>
+
+								<tr>
+									<th style="vertical-align: middle;">내용</th>
+									<td colspan="5" class="t-text"><textarea name="article_content" class="form-control" rows="15" id="content" cols="150" style="resize: none;">
+											</textarea></td>
+								</tr>
+
+
+							</table>
+
 						</div>
 
 
+
+					</form>
+
+					<div class="butt">
+						<button class="btn" id="registBtn">등록</button>
+						<button class="btn" id="listBtn">목록</button>
 					</div>
 				</div>
-		<div class="col-md-2"></div>
+
+
 			</div>
 		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
 
 
 
@@ -165,9 +136,8 @@
  </script>
 
 
-	<%@ include file="../include/footer.jsp"%>
-</body>
-</html>
+<%@ include file="../include/footer.jsp"%>
+
 
 
 
