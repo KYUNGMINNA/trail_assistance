@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
@@ -16,33 +15,28 @@
 					<h3 class="panel-title">조력자 신청 관리</h3>
 				</div>
 				<ul class="list-group">
-					<li class="list-group-item"><a
-						href="<c:url value='#' />">조력자 신청기관 관리</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='#' />">조력자 신청자 조회</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='#' />">조력자 신청자 승인 관리</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='#' />">조력자 현황 조회</a></li>
+					<li class="list-group-item"><a href="<c:url value='#' />">조력자 신청기관 관리</a></li>
+					<li class="list-group-item"><a href="<c:url value='#' />">조력자 신청자 조회</a></li>
+					<li class="list-group-item"><a href="<c:url value='#' />">조력자 신청자 승인 관리</a></li>
+					<li class="list-group-item"><a href="<c:url value='#' />">조력자 현황 조회</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="col-md-8">
 			<h4>나의 접수 내역 조회</h4>
-			
+
 			<!--form select를 가져온다 -->
 			<form action="<c:url value='/admin/admin_agency_list' />">
-		    	<div class="apply-search-wrap clearfix">
-                	<button type="submit" class="btn btn-primary">검색</button>
-                    <input type="text" name="keyword" class="form-control search-input" value="${pc.paging.keyword}">
-                    <select class="form-control search-select" name="condition">
-                         <option value="comNo" ${pc.paging.condition == 'comNo' ? 'selected' : ''}>기관번호</option>
-                         <option value="comName" ${pc.paging.condition == 'comName' ? 'selected' : ''}>기관명</option>
-                    </select>
-                </div>
-		    </form>
-			
+				<div class="apply-search-wrap clearfix">
+					<button type="submit" class="btn btn-primary">검색</button>
+					<input type="text" name="keyword" class="form-control search-input" value="${pc.paging.keyword}"> <select class="form-control search-select" name="condition">
+						<option value="comNo" ${pc.paging.condition == 'comNo' ? 'selected' : ''}>기관번호</option>
+						<option value="comName" ${pc.paging.condition == 'comName' ? 'selected' : ''}>기관명</option>
+					</select>
+				</div>
+			</form>
+
 			<table class="table table-hover apply-history-table">
 				<thead class="#">
 					<tr>
@@ -56,19 +50,17 @@
 						<tr>
 							<td>${list.comNo}</td>
 							<td>${list.comName}</td>
-							<td><a
-								href="<c:url value='/admin/comAdminDetail/${list.comNo}${pc.makeURI(pc.paging.pageNum)}' />">보기</a>
-							</td>
+							<td><a href="<c:url value='/admin/comAdminDetail/${list.comNo}${pc.makeURI(pc.paging.pageNum)}' />">보기</a></td>
 						</tr>
 					</c:forEach>
 
 				</tbody>
 			</table>
-			
-			
-			
-			
-			
+
+
+
+
+
 
 			<!----------------------------페이지 네이션을 가져옴------------------------------->
 
@@ -81,37 +73,31 @@
 						</c:if>
 
 						<c:forEach var="num" begin="${pc.beginPage}" end="${pc.endPage}">
-							<li class="${pc.paging.pageNum == num ? 'active' : ''}">
-								<a href="#" class="active" data-pagenum="${num}">${num}</a>
-							</li>
+							<li class="${pc.paging.pageNum == num ? 'active' : ''}"><a href="#" class="active" data-pagenum="${num}">${num}</a></li>
 						</c:forEach>
 
 						<c:if test="${pc.next}">
 							<li><a href="#" data-pagenum="${pc.endPage+1}">다음</a></li>
 						</c:if>
 					</ul>
-					
+
 				</div>
-				
+
 				<div class="regist-btn-wrap text-right">
-						<button type="button" class="btn btn-primary"
-						onclick="location.href='<c:url value="/admin/admin_agency_regist" />'">등록</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='<c:url value="/admin/admin_agency_regist" />'">등록</button>
 				</div>
-				
+
 				<!-- 페이지 관련 버튼(이전, 다음, 페이지번호)을 클릭 시 같이 숨겨서 보내줄 공통 값  -->
-				<input type="hidden" name="pageNum" value="${pc.paging.pageNum}"> 
-				<input type="hidden" name="cpp" value="${pc.paging.cpp}"> 
-				<input type="hidden" name="condition" value="${pc.paging.condition}"> 
-				<input type="hidden" name="keyword" value="${pc.paging.keyword}">
+				<input type="hidden" name="pageNum" value="${pc.paging.pageNum}"> <input type="hidden" name="cpp" value="${pc.paging.cpp}"> <input type="hidden" name="condition" value="${pc.paging.condition}"> <input type="hidden" name="keyword" value="${pc.paging.keyword}">
 
 			</form>
 		</div>
-		
+
 	</div>
 	<input type="hidden" id="account_type" value="${login.type}">
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp" %> 
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <!-------------------------------- script ------------------------------>
 <script>
 
