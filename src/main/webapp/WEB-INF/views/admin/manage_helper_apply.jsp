@@ -1,321 +1,277 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-    <!-- 개인 정의 스타일 추가 -->
-    <style>
-        .table>tbody>tr>th {
-            text-align: center;
-            vertical-align: middle;
-        }
+<!-- 개인 정의 스타일 추가 -->
+<style>
+.table>tbody>tr>th {
+	text-align: center;
+	vertical-align: middle;
+}
 
-        .table>tbody>tr>td {
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
-
+.table>tbody>tr>td {
+	text-align: center;
+	vertical-align: middle;
+}
+</style>
 
 
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
-    <div class="container" id="wrapper">
-        <h4>조력자 신청자 상세 정보 조회</h4>
-        <table class="table table-bordered">
-            <tbody>
-                <tr>
-                    <th>이름</th>
-                    <td>${assistant.helper_name}</td>
-                    <th>주민등록번호</th>
-                    <td>${assistant.helper_ssn_number}</td>
-                </tr>
-                <tr>
-                    <th>지원공고</th>
-                    <td>${assistant.helepr_articleboard}</td>
-                    <th>전화번호</th>
-                    <td>${assistant.helper_phone_tel}</td>
-                </tr>
-                <tr>
-                    <th>개인/기관</th>
-                    <td>${assistant.helper_cateogry_select}</td>
-                    <th>직업</th>
-                    <td>${assistant.helper_job}</td>
-                </tr>
-                <tr>
-                    <th>지정법원</th>
-                    <td>${assistant.law2}</td>
-                    <th>기본주소</th>
-                    <td>${assistant.helper_address1}</td>
-                </tr>
-                <tr>
-                    <th>상세주소</th>
-                    <td>${assistant.helper_address2}</td>
-                    <th>첨부파일</th>
-                    <td>
-                    	<a href="<c:url value="/admin/fileDownload?fileId=${assistant.hepler_edu_file_id}" />">학력파일</a>
-                        <a href="<c:url value="/admin/fileDownload?fileId=${assistant.hepler_career_file_id}" />">경력파일</a>
-                        <a href="<c:url value="/admin/fileDownload?fileId=${assistant.hepler_license_file_id}" />">자격증파일</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th>평정기준표</th>
-                    <td>
-                        <button type="button" id="eval-detail-btn" class="btn btn-info" data-toggle="modal" data-target="#myModal">평정기준표
-                            조회</button>
-                    </td>
-                    <th>신청자 상태</th>
-                    <td>
-                        <select name="assistantStatus" id="assistant_status" class="form-control">
-                            <option value="접수" 
-                            <c:if test="${assistant.helper_apply_status eq '접수'}">
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+
+<div class="container" id="wrapper">
+	<h4>조력자 신청자 상세 정보 조회</h4>
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+				<th>이름</th>
+				<td>${assistant.helper_name}</td>
+				<th>주민등록번호</th>
+				<td>${assistant.helper_ssn_number}</td>
+			</tr>
+			<tr>
+				<th>지원공고</th>
+				<td>${assistant.helepr_articleboard}</td>
+				<th>전화번호</th>
+				<td>${assistant.helper_phone_tel}</td>
+			</tr>
+			<tr>
+				<th>개인/기관</th>
+				<td>${assistant.helper_cateogry_select}</td>
+				<th>직업</th>
+				<td>${assistant.helper_job}</td>
+			</tr>
+			<tr>
+				<th>지정법원</th>
+				<td>${assistant.law2}</td>
+				<th>기본주소</th>
+				<td>${assistant.helper_address1}</td>
+			</tr>
+			<tr>
+				<th>상세주소</th>
+				<td>${assistant.helper_address2}</td>
+				<th>첨부파일</th>
+				<td><a href="<c:url value="/admin/fileDownload?fileId=${assistant.hepler_edu_file_id}" />">학력파일</a> <a href="<c:url value="/admin/fileDownload?fileId=${assistant.hepler_career_file_id}" />">경력파일</a> <a href="<c:url value="/admin/fileDownload?fileId=${assistant.hepler_license_file_id}" />">자격증파일</a></td>
+			</tr>
+			<tr>
+				<th>평정기준표</th>
+				<td>
+					<button type="button" id="eval-detail-btn" class="btn btn-info" data-toggle="modal" data-target="#myModal">평정기준표 조회</button>
+				</td>
+				<th>신청자 상태</th>
+				<td><select name="assistantStatus" id="assistant_status" class="form-control">
+						<option value="접수" <c:if test="${assistant.helper_apply_status eq '접수'}">
 								selected
                             </c:if>>접수</option>
-                            <option value="승인"
-                            <c:if test="${assistant.helper_apply_status eq '승인'}">
+						<option value="승인" <c:if test="${assistant.helper_apply_status eq '승인'}">
 								selected
                             </c:if>>승인</option>
-                            <option value="부적격"
-                            <c:if test="${assistant.helper_apply_status eq '부적격'}">
+						<option value="부적격" <c:if test="${assistant.helper_apply_status eq '부적격'}">
 								selected
                             </c:if>>부적격</option>
-                            <option value="보완"
-                            <c:if test="${assistant.helper_apply_status eq '보완'}">
+						<option value="보완" <c:if test="${assistant.helper_apply_status eq '보완'}">
 								selected
                             </c:if>>보완</option>
-                        </select>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+				</select></td>
+			</tr>
+		</tbody>
+	</table>
 
-        <!-- 모달 -->
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
+	<!-- 모달 -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
 
-                <!-- 모달 내용 -->
-                <div class="modal-content">
-                	<form action="#" id="evalForm">
-                		<div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" style="text-align: center;">평정기준표</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table table-bordered">
-                            <tbody>
-                                <tr>
-                                    <th rowspan="2">평정항목</th>
-                                    <th rowspan="2">세부항목</th>
-                                    <th rowspan="2">배점</th>
-                                    <th colspan="3">내용</th>
-                                </tr>
-                                <tr>
-                                    <th>구분</th>
-                                    <th>기준</th>
-                                    <th>배점</th>
-                                </tr>
-                                <tr>
-                                    <td rowspan="9">기본평정</td>
-                                    <td rowspan="6">경력점수</td>
-                                    <td rowspan="6">${eval.totalCareer + eval.insideCareer}</td>
-                                    <td rowspan="3">통산경력</td>
-                                    <td>○10년 이상</td>
-                                    <td><input type="radio" name="totalCareer" value="5"
-                                    	<c:if test="${eval.totalCareer eq 5}">
+			<!-- 모달 내용 -->
+			<div class="modal-content">
+				<form action="#" id="evalForm">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" style="text-align: center;">평정기준표</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th rowspan="2">평정항목</th>
+									<th rowspan="2">세부항목</th>
+									<th rowspan="2">배점</th>
+									<th colspan="3">내용</th>
+								</tr>
+								<tr>
+									<th>구분</th>
+									<th>기준</th>
+									<th>배점</th>
+								</tr>
+								<tr>
+									<td rowspan="9">기본평정</td>
+									<td rowspan="6">경력점수</td>
+									<td rowspan="6">${eval.totalCareer + eval.insideCareer}</td>
+									<td rowspan="3">통산경력</td>
+									<td>10년 이상</td>
+									<td><input type="radio" name="totalCareer" value="5" <c:if test="${eval.totalCareer eq 5}">
                                     	checked
-                                    	</c:if>
-                                    >5</td>
-                                </tr>
-                                <tr>
-                                    <td>●5~10 년</td>
-                                    <td><input type="radio" name="totalCareer" value="4"
-                                    	<c:if test="${eval.totalCareer eq 4}">
+                                    	</c:if>>5</td>
+								</tr>
+								<tr>
+									<td>5~10 년</td>
+									<td><input type="radio" name="totalCareer" value="4" <c:if test="${eval.totalCareer eq 4}">
                                     	checked
-                                    	</c:if>
-                                    >4</td>
-                                </tr>
-                                <tr>
-                                    <td>○5년 미만</td>
-                                    <td><input type="radio" name="totalCareer" value="3"
-                                    	<c:if test="${eval.totalCareer eq 3}">
+                                    	</c:if>>4</td>
+								</tr>
+								<tr>
+									<td>5년 미만</td>
+									<td><input type="radio" name="totalCareer" value="3" <c:if test="${eval.totalCareer eq 3}">
                                     	checked
-                                    	</c:if>
-                                    >3</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="3">관내경력</td>
-                                    <td>○10년 이상</td>
-                                    <td><input type="radio" name="innerCareer" value="5"
-                                    	<c:if test="${eval.insideCareer eq 5}">
+                                    	</c:if>>3</td>
+								</tr>
+								<tr>
+									<td rowspan="3">관내경력</td>
+									<td>10년 이상</td>
+									<td><input type="radio" name="innerCareer" value="5" <c:if test="${eval.insideCareer eq 5}">
                                     	checked
-                                    	</c:if>
-                                    >5</td>
-                                </tr>
-                                <tr>
-                                    <td>○5~10 년</td>
-                                    <td><input type="radio" name="innerCareer" value="4"
-                                    	<c:if test="${eval.insideCareer eq 4}">
+                                    	</c:if>>5</td>
+								</tr>
+								<tr>
+									<td>5~10 년</td>
+									<td><input type="radio" name="innerCareer" value="4" <c:if test="${eval.insideCareer eq 4}">
                                     	checked
-                                    	</c:if>
-                                    >4</td>
-                                </tr>
-                                <tr>
-                                    <td>●5년 미만</td>
-                                    <td><input type="radio" name="innerCareer" value="3"
-                                    	<c:if test="${eval.insideCareer eq 3}">
+                                    	</c:if>>4</td>
+								</tr>
+								<tr>
+									<td>5년 미만</td>
+									<td><input type="radio" name="innerCareer" value="3" <c:if test="${eval.insideCareer eq 3}">
                                     	checked
-                                    	</c:if>
-                                    >3</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2">사무소 소재지</td>
-                                    <td rowspan="2">${eval.officeAddress}</td>
-                                    <td colspan="2">□관내사무소</td>
-                                    <td><input type="radio" name="officeLocation" value="5"
-                                    	<c:if test="${eval.officeAddress eq 5}">
+                                    	</c:if>>3</td>
+								</tr>
+								<tr>
+									<td rowspan="2">사무소 소재지</td>
+									<td rowspan="2">${eval.officeAddress}</td>
+									<td colspan="2">관내사무소</td>
+									<td><input type="radio" name="officeLocation" value="5" <c:if test="${eval.officeAddress eq 5}">
                                     	checked
-                                    	</c:if>
-                                    >5</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">■관외사무소</td>
-                                    <td><input type="radio" name="officeLocation" value="3"
-                                    	<c:if test="${eval.officeAddress eq 3}">
+                                    	</c:if>>5</td>
+								</tr>
+								<tr>
+									<td colspan="2">관외사무소</td>
+									<td><input type="radio" name="officeLocation" value="3" <c:if test="${eval.officeAddress eq 3}">
                                     	checked
-                                    	</c:if>
-                                    >3</td>
-                                </tr>
-                                <tr>
-                                    <!-- 나중에 여기 사무소 주소지 동적으로 뿌려야 함 -->
-                                    <td colspan="5">신청인 사무소주소지 : ${assistant.helper_office_address1}</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="3">인성평가</td>
-                                    <td rowspan="3"></td>
-                                    <td rowspan="3">${eval.personality}</td>
-                                    <td colspan="2">○우수</td>
-                                    <td><input type="radio" name="personalityEval" value="5"
-                                    	<c:if test="${eval.personality eq 5}">
+                                    	</c:if>>3</td>
+								</tr>
+								<tr>
+									<!-- 나중에 여기 사무소 주소지 동적으로 뿌려야 함 -->
+									<td colspan="5">신청인 사무소주소지 : ${assistant.helper_office_address1}</td>
+								</tr>
+								<tr>
+									<td rowspan="3">인성평가</td>
+									<td rowspan="3"></td>
+									<td rowspan="3">${eval.personality}</td>
+									<td colspan="2">우수</td>
+									<td><input type="radio" name="personalityEval" value="5" <c:if test="${eval.personality eq 5}">
                                     	checked
-                                    	</c:if>
-                                    >5</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">○평균</td>
-                                    <td><input type="radio" name="personalityEval" value="4"
-                                    	<c:if test="${eval.personality eq 4}">
+                                    	</c:if>>5</td>
+								</tr>
+								<tr>
+									<td colspan="2">평균</td>
+									<td><input type="radio" name="personalityEval" value="4" <c:if test="${eval.personality eq 4}">
                                     	checked
-                                    	</c:if>
-                                    >4</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">○미흡</td>
-                                    <td><input type="radio" name="personalityEval" value="3"
-                                    	<c:if test="${eval.personality eq 3}">
+                                    	</c:if>>4</td>
+								</tr>
+								<tr>
+									<td colspan="2">미흡</td>
+									<td><input type="radio" name="personalityEval" value="3" <c:if test="${eval.personality eq 3}">
                                     	checked
-                                    	</c:if>
-                                    >3</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2">면접</td>
-                                    <td rowspan="2"></td>
-                                    <td rowspan="2">${eval.interview}</td>
-                                    <td colspan="2">○우수</td>
-                                    <td><input type="radio" name="interview" value="5"
-                                    	<c:if test="${eval.interview eq 5}">
+                                    	</c:if>>3</td>
+								</tr>
+								<tr>
+									<td rowspan="2">면접</td>
+									<td rowspan="2"></td>
+									<td rowspan="2">${eval.interview}</td>
+									<td colspan="2">우수</td>
+									<td><input type="radio" name="interview" value="5" <c:if test="${eval.interview eq 5}">
                                     	checked
-                                    	</c:if>
-                                    >5</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">○미흡</td>
-                                    <td><input type="radio" name="interview" value="3"
-                                    	<c:if test="${eval.interview eq 3}">
+                                    	</c:if>>5</td>
+								</tr>
+								<tr>
+									<td colspan="2">미흡</td>
+									<td><input type="radio" name="interview" value="3" <c:if test="${eval.interview eq 3}">
                                     	checked
-                                    	</c:if>
-                                    >3</td>
-                                </tr>
-                                <!-- 자격증 점수 (최대 4개) -->
-                                <tr>
-                                    <td rowspan="4">자격증점수</td>
-                                    <td rowspan="4"></td>
-                                    <td rowspan="4">${eval.license}</td>
-                                    <td colspan="2"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"></td>
-                                    <td></td>
-                                </tr>
-                                <!-- 합계 -->
-                                <tr>
-                                    <td colspan="2">합계</td>
-                                    <td>${eval.totalCareer + eval.insideCareer + eval.officeAddress +
+                                    	</c:if>>3</td>
+								</tr>
+								<!-- 자격증 점수 (최대 4개) -->
+								<tr>
+									<td rowspan="4">자격증점수</td>
+									<td rowspan="4"></td>
+									<td rowspan="4">${eval.license}</td>
+									<td colspan="2"></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td colspan="2"></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td colspan="2"></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td colspan="2"></td>
+									<td></td>
+								</tr>
+								<!-- 합계 -->
+								<tr>
+									<td colspan="2">합계</td>
+									<td>${eval.totalCareer + eval.insideCareer + eval.officeAddress +
                                     	eval.personality + eval.interview + eval.license }</td>
-                                    <td colspan="3"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">감정인 평정표</td>
-                                    <td>${eval.appraiserScore}</td>
-                                    <td colspan="3"></td>
-                                </tr>
-                                <tr>
-                                    <td>조정평점</td>
-                                    <td>심사위원 추천</td>
-                                    <td><input type="number" min="0" max="7" id="recommendScore"
-                                    value="${eval.adjustmentRating}"></td>
-                                    <td colspan="3">최대 7점</td>
-                                </tr>
-                                <!-- 최종점수 동적으로 얻어와 뿌리기 -->
-                                <tr>
-                                    <td colspan="2">최종점수 (종합)</td>
-                                    <td>${eval.totalSum}</td>
-                                    <td colspan="3"><strong>${eval.totalSum}</strong>점 / 총점</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <input type="hidden" id="assistant_id" value="${assistant.assistant_id}">
-                    <input type="hidden" id="helper_name" value="${assistant.helper_name}">
-                    <input type="hidden" id="helper_ssn_number" value="${assistant.helper_ssn_number}">
-                	<input type="hidden" id="status" value="${form.status}">
-                	<input type="hidden" id="form_id" value="${form.formId}">
-                	<input type="hidden" id="acc_id" value="${assistant.acc_id}">
-                	</form>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-modify">수정</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                    </div>
-                    
-                </div>
+									<td colspan="3"></td>
+								</tr>
+								<tr>
+									<td colspan="2">감정인 평정표</td>
+									<td>${eval.appraiserScore}</td>
+									<td colspan="3"></td>
+								</tr>
+								<tr>
+									<td>조정평점</td>
+									<td>심사위원 추천</td>
+									<td><input type="number" min="0" max="7" id="recommendScore" value="${eval.adjustmentRating}"></td>
+									<td colspan="3">최대 7점</td>
+								</tr>
+								<!-- 최종점수 동적으로 얻어와 뿌리기 -->
+								<tr>
+									<td colspan="2">최종점수 (종합)</td>
+									<td>${eval.totalSum}</td>
+									<td colspan="3"><strong>${eval.totalSum}</strong>점 / 총점</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-            </div>
-        </div>
+					<input type="hidden" id="assistant_id" value="${assistant.assistant_id}"> <input type="hidden" id="helper_name" value="${assistant.helper_name}"> <input type="hidden" id="helper_ssn_number" value="${assistant.helper_ssn_number}"> <input type="hidden" id="status" value="${form.status}"> <input type="hidden" id="form_id" value="${form.formId}"> <input type="hidden" id="acc_id" value="${assistant.acc_id}">
+				</form>
 
-        <h4>보완 요구사항 작성</h4>
-        <textarea class="form-control col-sm-5" id="requirements" rows-5 placeholder="보완 요구사항 입력" style="resize: none;">${assistant.helper_status}</textarea>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-modify">수정</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
 
-        <div class="text-center">
-            <button type="button" id="btn-apply-save" class="btn btn-primary" style="margin:0.5em">저장</button>
-<!--             <button type="button" id="btn-apply-delete" class="btn btn-danger" style="margin:0.5em">삭제</button> -->
-            <button type="button" class="btn btn-default btn_list_go" style="margin:0.5em">목록</button>
-        </div>
-        
-        <input type="hidden" id="account_type" value="${login.type}">
-    </div>
-    
-    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-    
-    
+			</div>
+
+		</div>
+	</div>
+
+	<h4>보완 요구사항 작성</h4>
+	<textarea class="form-control col-sm-5" id="requirements" rows-5 placeholder="보완 요구사항 입력" style="resize: none;">${assistant.helper_status}</textarea>
+
+	<div class="text-center">
+		<button type="button" id="btn-apply-save" class="btn btn-primary" style="margin: 0.5em">저장</button>
+		<!--             <button type="button" id="btn-apply-delete" class="btn btn-danger" style="margin:0.5em">삭제</button> -->
+		<button type="button" class="btn btn-default btn_list_go" style="margin: 0.5em">목록</button>
+	</div>
+
+	<input type="hidden" id="account_type" value="${login.type}">
+</div>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+
 <script>
 
 	const msg = '${msg}';

@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
@@ -11,13 +10,11 @@
 
 <div class="container-fluid" id="wrapper">
 	<div class="row">
-		<div class="col-md-2">
-		
-		</div>
+		<div class="col-md-2"></div>
 
-	<div class="col-md-8">
+		<div class="col-md-8">
 			<h4>전제 조력자 신청자 조회</h4>
-			
+
 			<!--form select를 가져온다 -->
 			<%-- <form action="<c:url value='/mypage/mypage_assistant_history' />">
 		    	<div class="apply-search-wrap clearfix">
@@ -29,7 +26,7 @@
                     </select>
                 </div>
 		    </form> --%>
-			
+
 			<table class="table table-hover apply-history-table">
 				<thead class="#">
 					<tr>
@@ -37,9 +34,10 @@
 						<th>개인/기관</th>
 						<th>신청 조력자 유형</th>
 						<th>접수 상태</th>
-				<!-- 		<th>심사 현황</th> -->
+						<!-- 		<th>심사 현황</th> -->
 						<th>사무소명</th>
-						<th>접수 날짜</th> <!-- 0825 최필규 저녁 수정 여기입니다!!!! -->
+						<th>접수 날짜</th>
+						<!-- 0825 최필규 저녁 수정 여기입니다!!!! -->
 						<th>상세</th>
 						<!-- <th>결과</th> -->
 					</tr>
@@ -53,13 +51,13 @@
 							<td>${list.helper_apply_status}</td>
 							<%-- <td>${list.helper_status}</td> --%>
 							<td>${list.helper_office_name}</td>
-							<td>${list.helper_regdate }</td>  <!-- 0825 최필규 저녁 수정 여기입니다!!!! -->
-							<td><a href="<c:url value='/admin/manage_helper_apply/${list.assistant_id}' />">관리</a>
-							</td>
-							
+							<td>${list.helper_regdate }</td>
+							<!-- 0825 최필규 저녁 수정 여기입니다!!!! -->
+							<td><a href="<c:url value='/admin/manage_helper_apply/${list.assistant_id}' />">관리</a></td>
+
 							<!-- <td>관리</td> -->
 						</tr>
-					
+
 					</c:forEach>
 				</tbody>
 			</table>
@@ -76,9 +74,7 @@
 						</c:if>
 
 						<c:forEach var="num" begin="${pc.beginPage}" end="${pc.endPage}">
-							<li class="${pc.paging.pageNum == num ? 'active' : ''}">
-								<a href="#" class="active" data-pagenum="${num}">${num}</a>
-							</li>
+							<li class="${pc.paging.pageNum == num ? 'active' : ''}"><a href="#" class="active" data-pagenum="${num}">${num}</a></li>
 						</c:forEach>
 
 						<c:if test="${pc.next}">
@@ -88,10 +84,7 @@
 				</div>
 
 				<!-- 페이지 관련 버튼(이전, 다음, 페이지번호)을 클릭 시 같이 숨겨서 보내줄 공통 값  -->
-				<input type="hidden" name="pageNum" value="${pc.paging.pageNum}"> 
-				<input type="hidden" name="cpp" value="${pc.paging.cpp}"> 
-				<input type="hidden" name="condition" value="${pc.paging.condition}"> 
-				<input type="hidden" name="keyword" value="${pc.paging.keyword}">
+				<input type="hidden" name="pageNum" value="${pc.paging.pageNum}"> <input type="hidden" name="cpp" value="${pc.paging.cpp}"> <input type="hidden" name="condition" value="${pc.paging.condition}"> <input type="hidden" name="keyword" value="${pc.paging.keyword}">
 
 			</form>
 		</div>
@@ -99,7 +92,7 @@
 	<input type="hidden" id="account_type" value="${login.type}">
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp" %> 
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <!-------------------------------- script ------------------------------>
 <script>
 	$(function() {
