@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<link
-	href="${pageContext.request.contextPath }/resources/css1/view_style.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css1/view_style.css" rel="stylesheet">
 
 
 
@@ -24,12 +21,9 @@
 				</div>
 				<!-- 사이드바 메뉴목록1 -->
 				<ul class="list-group">
-					<li class="list-group-item"><a
-						href="<c:url value='/noticeboard/list' />">>공지사항</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='/faqboard/list' />">>FAQ</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='/oneboard/list' />">>1:1 문의</a></li>
+					<li class="list-group-item"><a href="<c:url value='/noticeboard/list' />">>공지사항</a></li>
+					<li class="list-group-item"><a href="<c:url value='/faqboard/list' />">>FAQ</a></li>
+					<li class="list-group-item"><a href="<c:url value='/oneboard/list' />">>1:1 문의</a></li>
 				</ul>
 			</div>
 
@@ -48,38 +42,26 @@
 					<div class="titlebox">
 						<h3>FAQ 수정</h3>
 					</div>
-					<form action="<c:url value='/faqboard/faqUpdate' />" method="post"
-						name="updateForm">
+					<form action="<c:url value='/faqboard/faqUpdate' />" method="post" name="updateForm">
 
 						<div class="form-group">
-							<label>제목</label> <input class="form-control" id="title"
-								name='faq_title' value="${faq.faq_title}">
+							<label>제목</label> <input class="form-control" id="title" name='faq_title' value="${faq.faq_title}">
 
 						</div>
 
 						<div class="form-group">
-							<label>FAQ 유형</label> <select class="form-control input-sm sel"
-								name="faq_type">
-								<option
-									<c:if test='${one.one_cate_one=="계정 분실"}'> selected='selected'</c:if>>계정분실</option>
-								<option
-									<c:if test='${one.one_cate_one=="이용 문의"}'> selected='selected'</c:if>>이용
-									문의</option>
-								<option
-									<c:if test='${one.one_cate_one=="건의 사항"}'> selected='selected'</c:if>>건의
-									사항</option>
-								<option
-									<c:if test='${one.one_cate_one=="버그 및 오류 신고"}'> selected='selected'</c:if>>버그
-									및 오류 신고</option>
-								<option
-									<c:if test='${one.one_cate_one=="기타"}'> selected='selected'</c:if>>기타</option>
+							<label>FAQ 유형</label> <select class="form-control input-sm sel" name="faq_type">
+								<option <c:if test='${one.one_cate_one=="계정 분실"}'> selected='selected'</c:if>>계정분실</option>
+								<option <c:if test='${one.one_cate_one=="이용 문의"}'> selected='selected'</c:if>>이용 문의</option>
+								<option <c:if test='${one.one_cate_one=="건의 사항"}'> selected='selected'</c:if>>건의 사항</option>
+								<option <c:if test='${one.one_cate_one=="버그 및 오류 신고"}'> selected='selected'</c:if>>버그 및 오류 신고</option>
+								<option <c:if test='${one.one_cate_one=="기타"}'> selected='selected'</c:if>>기타</option>
 							</select>
 
 						</div>
 
 						<div class="form-group">
-							<label>번호</label> <input class="form-control" name='faq_id'
-								value="${faq.faq_id}" readonly>
+							<label>번호</label> <input class="form-control" name='faq_id' value="${faq.faq_id}" readonly>
 						</div>
 
 
@@ -92,8 +74,7 @@
 
 						<div class="form-group">
 							<label>내용</label>
-							<textarea class="form-control" id="content" rows="10"
-								name='faq_content' style="resize: none;">${faq.faq_content}</textarea>
+							<textarea class="form-control" id="content" rows="10" name='faq_content' style="resize: none;">${faq.faq_content}</textarea>
 
 						</div>
 
