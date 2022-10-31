@@ -1,5 +1,4 @@
-package  com.assistance.trial.controller;
-
+package com.assistance.trial.controller;
 
 import java.util.Map;
 
@@ -32,8 +31,6 @@ import com.assistance.trial.eval.service.IEvalService;
 import com.assistance.trial.form.service.IFormService;
 import com.assistance.trial.util.MailSendService;
 
-
-
 @Controller
 @RequestMapping("/account")
 public class AccountController {
@@ -62,12 +59,12 @@ public class AccountController {
 		return "account/user_join";
 	}
 
-	@GetMapping("/find_my_id_result") 
+	@GetMapping("/find_my_id_result")
 	public String findMyIdResult() {
 		return "account/find_my_id_result";
 	}
 
-	@PostMapping("/find_my_id_result") 
+	@PostMapping("/find_my_id_result")
 	public String findMyIdResultPost(HttpServletRequest req, Model model) {
 
 		String email = req.getParameter("userEmail");
@@ -105,7 +102,6 @@ public class AccountController {
 		String id = req.getParameter("account");
 		String pw = req.getParameter("password");
 
-		// 없는 아이디를 찾으면 당연히 터짐. 그러니까 reset_pw 하기 전에 검사해야함..
 		AccountVO vo = service.selectOne(id);
 
 		vo.setPassword(pw);
@@ -117,7 +113,6 @@ public class AccountController {
 			model.addAttribute("msg", "pwChangeFailed");
 		}
 
-		// 이름 동적으로 처리해주긴 해야함
 		return "/home";
 	}
 
@@ -125,15 +120,14 @@ public class AccountController {
 	public String login() {
 		return "account/login";
 	}
+
 	@PostMapping("/userlogin")
-	public String loginCheck(String username,String password,Model model) { 
+	public String loginCheck(String username, String password, Model model) {
 
-		model.addAttribute("user", service.login(username,password));
+		model.addAttribute("user", service.login(username, password));
 
-		return "home"; 
+		return "home";
 	}
-
-
 
 	/*
 	 * @ResponseBody
@@ -158,8 +152,7 @@ public class AccountController {
 	 * accVo.getPassword()); return "pwFail"; } } return "idFail"; }
 	 */
 
-
-	@GetMapping("/logout") 
+	@GetMapping("/logout")
 	public ModelAndView logout(HttpSession session) {
 		session.invalidate();
 
@@ -171,15 +164,13 @@ public class AccountController {
 		return "account/reset_my_password";
 	}
 
-	//회원 가입  완료시 넘어가는 화면
+	// 회원 가입 완료시 넘어가는 화면
 	@GetMapping("/helper_approval")
 	public String helperApproval() {
 		return "account/helper_approval";
 	}
 
-
-
-	//회원가입화면 안에서의 세부 기능들 구현  :ajax를 위함
+	// 회원가입화면 안에서의 세부 기능들 구현 :ajax를 위함
 	@PostMapping("/signup")
 	@ResponseBody
 	public String register(@RequestBody AccountVO vo) {
@@ -235,8 +226,7 @@ public class AccountController {
 
 	@PostMapping("/selectIdByEmail")
 	@ResponseBody
-	public void selectIdByEmail(@RequestBody String email,
-			Model model) {
+	public void selectIdByEmail(@RequestBody String email, Model model) {
 		System.out.println("/account/selectIdByEmail: POST");
 
 		System.out.println(service.selectIdByEmail(email).toString());
@@ -254,13 +244,12 @@ public class AccountController {
 		AccountVO selectedAccount = service.selectIdByEmail(vo.getEmail());
 
 		// id와 이메일 둘다 유효한지 검증해야 함
-		if(selectedAccount.getAccount().equals(vo.getAccount()) &&
-				selectedAccount.getEmail().equals(vo.getEmail())) {
+		if (selectedAccount.getAccount().equals(vo.getAccount()) && selectedAccount.getEmail().equals(vo.getEmail())) {
 			return "found";
 		} else {
 			return "notFound";
 		}
 	}
 
-	//회원가입화면 안에서의 세부 기능들 구현 끝
+	// 회원가입화면 안에서의 세부 기능들 구현 끝
 }

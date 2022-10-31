@@ -24,109 +24,70 @@ import com.assistance.trial.util.PageVO;
 @Controller
 @RequestMapping("/oneboard")
 public class OneBoardController {
-	
+
 	@Autowired
 	private IOneBoardService service;
-	
-	//목록 화면
+
+	// 목록 화면
 	@GetMapping("/list")
-	public void list(PageVO vo, Model model,HttpSession session) {
-		
+	public void list(PageVO vo, Model model, HttpSession session) {
 		System.out.println(vo);
-		
+
 		PageCreator pc = new PageCreator();
 		pc.setPaging(vo);
 		pc.setArticleTotalCount(service.getTotal(vo));
-		
 		System.out.println(pc);
-		
+
 		model.addAttribute("oneList", service.getList(vo));
 		model.addAttribute("pc", pc);
-		
-		
+
 	}
-	
-	
-	//글쓰기 화면 처리 
+
+	// 글쓰기 화면 처리
 	@GetMapping("/write")
-	public void write(HttpSession session) {}
-	
-	
-	//글 등록 처리
+	public void write(HttpSession session) {
+	}
+
+	// 글 등록 처리
 	@PostMapping("/registForm")
-	public String registForm(OneBoardVO vo, RedirectAttributes ra,HttpSession session) {
+	public String registForm(OneBoardVO vo, RedirectAttributes ra, HttpSession session) {
 		service.regist(vo);
 		ra.addFlashAttribute("msg", "정상 등록 처리되었습니다.");
+
 		return "redirect:/oneboard/list";
 	}
 
-	
-	//글 상세보기 처리
+	// 글 상세보기 처리
 	@GetMapping("/view/{one_id}")
-	public String getContent(@PathVariable int one_id, 
-			@ModelAttribute("p") PageVO vo,
-			Model model,HttpSession session) {
-	
+	public String getContent(@PathVariable int one_id, @ModelAttribute("p") PageVO vo, Model model,
+			HttpSession session) {
 		model.addAttribute("one", service.getContent(one_id));
-		
+
 		return "oneboard/view";
-		
-		
 	}
-	
-	//글 수정 페이지 이동 처리
+
+	// 글 수정 페이지 이동 처리
 	@GetMapping("/write_corr")
-	public void write_corr(int one_id, Model model,HttpSession session) {
-	model.addAttribute("one", service.getContent(one_id));
+	public void write_corr(int one_id, Model model, HttpSession session) {
+		model.addAttribute("one", service.getContent(one_id));
 	}
-	
-	//글 수정 처리
+
+	// 글 수정 처리
 	@PostMapping("/oneUpdate")
-	public String oneUpdate(OneBoardVO vo, RedirectAttributes ra,HttpSession session) {
+	public String oneUpdate(OneBoardVO vo, RedirectAttributes ra, HttpSession session) {
 		service.update(vo);
 		ra.addFlashAttribute("msg", "updateSuccess");
+
 		return "redirect:/oneboard/view/" + vo.getOne_id();
 	}
-	
-	//글 삭제 처리
+
+	// 글 삭제 처리
 	@PostMapping("/oneDelete")
-	public String oneDelete(int one_id, RedirectAttributes ra,HttpSession session) {
-		
+	public String oneDelete(int one_id, RedirectAttributes ra, HttpSession session) {
 		service.delete(one_id);
-		
 		ra.addFlashAttribute("msg", "게시글이 삭제되었습니다.");
-		
+
 		return "redirect:/oneboard/list";
 	}
-	
-	
-	//파일 업로드
-	
-		
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
