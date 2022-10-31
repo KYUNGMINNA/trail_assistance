@@ -91,10 +91,16 @@
 <h4>Server : Apache Tomcat8.5</h4>
 <h4>DataBase :Oracle 11g</h4>
 
+
 </ul>
 <h3>Tools</h3>
 <ul>
 <h4>STS 3.9.13</h4>
+</ul>
+
+<h3>배포</h3>
+<ul>
+<h4>AWS</h4>
 </ul>
 
 
