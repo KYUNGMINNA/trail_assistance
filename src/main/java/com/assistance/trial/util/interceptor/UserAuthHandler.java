@@ -16,15 +16,12 @@ public class UserAuthHandler implements HandlerInterceptor {
 		HttpSession session=request.getSession();
 
 		if(session.getAttribute("login") ==null) {
+			System.out.println("오류나서 호출됌");
 			response.sendRedirect(request.getContextPath()+"/account/login");
-			return false; //false : 컨트롤러 진입 막음
+			return false;
 		}
 
-
-
-
-
-		return true;  //컨트롤러로 정상적으로 넘어감 
+		return true; 
 
 	}
 }
