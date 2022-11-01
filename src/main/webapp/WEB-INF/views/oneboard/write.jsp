@@ -1,125 +1,113 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<link
-	href="${pageContext.request.contextPath }/resources/css1/view_style.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css1/view_style.css" rel="stylesheet">
 
 
 
 
 
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 
 
-		<div class="container-fluid" id="wrapper">
-			<div class="row">
+<div class="container-fluid" id="wrapper">
+	<div class="row">
 
-			<div class="col-md-2" id="menu-nav">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"></h3>
-						<i class="glyphicon glyphicon-leaf"></i> <span>1:1문의</span>
-					</div>
-					<!-- 사이드바 메뉴목록1 -->
+		<div class="col-md-2" id="menu-nav">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"></h3>
+					<i class="glyphicon glyphicon-leaf"></i> <span>1:1문의</span>
+				</div>
+				<!-- 사이드바 메뉴목록1 -->
 				<ul class="list-group">
-						<li class="list-group-item"><a
-							href="<c:url value='/noticeboard/list' />">>공지사항</a></li>
-						<li class="list-group-item"><a
-							href="<c:url value='/faqboard/list' />">>FAQ</a></li>
-						<li class="list-group-item"><a
-							href="<c:url value='/oneboard/list' />">>1:1 문의</a></li>
-					</ul>
-				</div>
-
+					<li class="list-group-item"><a href="<c:url value='/noticeboard/list' />">>공지사항</a></li>
+					<li class="list-group-item"><a href="<c:url value='/faqboard/list' />">>FAQ</a></li>
+					<li class="list-group-item"><a href="<c:url value='/oneboard/list' />">>1:1 문의</a></li>
+				</ul>
 			</div>
 
-
-				<div class="board-hon">
-					<div class="col-md-8 board-table">
-						
-
-
-
-
-						<div class="col-xs-12 col-md-12 write-wrap">
-
-							<div class="titlebox">
-								<p>1:1문의 등록</p>
-							</div>
-
-							<form action="<c:url value='/oneboard/registForm'/>"
-								name="registForm" method="post">
-
-								<table class="table">
-									<tbody class="t-control">
-
-
-
-										<tr>
-											<td class="t-title">작성자</td>
-											<td><input type="text" class="form-control input-sm"
-												name="one_writer" value="${login.account}"
-												readonly></td>
-										</tr>
-
-										<tr>
-											<td class="t-title">문의 제목 *</td>
-
-											<td><input type="text" class="form-control input-sm"
-												id="title" name="one_title"></td>
-										</tr>
-
-										<tr>
-											<td class="t-title">문의 유형 *</td>
-
-											<td><select class=" form-control input-sm sel"
-												name="one_cate_one">
-													<option>계정 분실</option>
-													<option>이용 문의</option>
-													<option>건의 사항</option>
-													<option>버그 및 오류 신고</option>
-													<option>기타</option>
-											</select></td>
-										</tr>
-
-
-
-										<tr>
-											<td class="t-title">문의 내용 *</td>
-											<td><textarea class="form-control" rows="10"
-												id="content"name="one_content" style="resize: none;"></textarea></td>
-										</tr>
-
-
-									</tbody>
-								</table>
-
-						</form>
-
-								<div class="titlefoot text-right">
-									<button class="btn" id="registBtn">등록</button>
-									<button class="btn" id="listBtn">목록</button>
-								</div>
-
-						
-
-						</div>
-					</div>
-				</div>
-		<div class="col-md-2"></div>
-			</div>
 		</div>
 
 
+		<div class="board-hon">
+			<div class="col-md-8 board-table">
 
 
 
 
-	<script>
+
+				<div class="col-xs-12 col-md-12 write-wrap">
+
+					<div class="titlebox">
+						<p>1:1문의 등록</p>
+					</div>
+
+					<form action="<c:url value='/oneboard/registForm'/>" name="registForm" method="post">
+
+						<table class="table">
+							<tbody class="t-control">
+
+
+
+								<tr>
+									<td class="t-title">작성자</td>
+									<td><input type="text" class="form-control input-sm" name="one_writer" value="${login.account}" readonly></td>
+								</tr>
+
+								<tr>
+									<td class="t-title">문의 제목 *</td>
+
+									<td><input type="text" class="form-control input-sm" id="title" name="one_title"></td>
+								</tr>
+
+								<tr>
+									<td class="t-title">문의 유형 *</td>
+
+									<td><select class=" form-control input-sm sel" name="one_cate_one">
+											<option>계정 분실</option>
+											<option>이용 문의</option>
+											<option>건의 사항</option>
+											<option>버그 및 오류 신고</option>
+											<option>기타</option>
+									</select></td>
+								</tr>
+
+
+
+								<tr>
+									<td class="t-title">문의 내용 *</td>
+									<td><textarea class="form-control" rows="10" id="content" name="one_content" style="resize: none;"></textarea></td>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+					</form>
+
+					<div class="titlefoot text-right">
+						<button class="btn" id="registBtn">등록</button>
+						<button class="btn" id="listBtn">목록</button>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+
+
+
+
+
+
+<script>
  	$(function(){
  		$('#registBtn').click(function(){
  			if($('#title').val() === ''){
@@ -159,7 +147,7 @@
  </script>
 
 
-	<%@ include file="../include/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>
 </body>
 </html>
 
