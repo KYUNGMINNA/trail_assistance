@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<link
-	href="${pageContext.request.contextPath }/resources/css1/view_style.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css1/view_style.css" rel="stylesheet">
 
 
 
@@ -25,12 +22,9 @@
 				</div>
 				<!-- 사이드바 메뉴목록1 -->
 				<ul class="list-group">
-					<li class="list-group-item"><a
-						href="<c:url value='/noticeboard/list' />">>공지사항</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='/faqboard/list' />">>FAQ</a></li>
-					<li class="list-group-item"><a
-						href="<c:url value='/oneboard/list' />">>1:1 문의</a></li>
+					<li class="list-group-item"><a href="<c:url value='/noticeboard/list' />">>공지사항</a></li>
+					<li class="list-group-item"><a href="<c:url value='/faqboard/list' />">>FAQ</a></li>
+					<li class="list-group-item"><a href="<c:url value='/oneboard/list' />">>1:1 문의</a></li>
 				</ul>
 			</div>
 
@@ -50,10 +44,9 @@
 						<h3>공지사항 수정</h3>
 					</div>
 
-					<form action="<c:url value='/noticeboard/noticeUpdate'/>"
-						name="updateForm" method="post">
+					<form action="<c:url value='/noticeboard/noticeUpdate'/>" name="updateForm" method="post">
 						<input type="hidden" value="${notice.notice_id}" name="notice_id" id="notice_id">
-					
+
 						<div class="contenIn">
 							<table class="tableVer table-bordered">
 								<caption style="display: none">공고 게시글 상세정보 표</caption>
@@ -64,20 +57,17 @@
 											<td><input class="form-control" name='notice_id'
 												value="${notice.notice_id}" readonly></td>
 										</c:if> --%>
-											
+
 										<th>작성자</th>
-										<td><input class="form-control" name="notice_writer"
-											value="${notice.notice_writer}" readonly></td>
+										<td><input class="form-control" name="notice_writer" value="${notice.notice_writer}" readonly></td>
 
 										<th class="title">제목</th>
-										<td colspan="6"><input class="form-control input-sm"
-											id="title" name="notice_title" value="${notice.notice_title}">
+										<td colspan="6"><input class="form-control input-sm" id="title" name="notice_title" value="${notice.notice_title}">
 									</tr>
 
 									<tr>
 										<th>개인/기관</th>
-										<td><select class="form-control input-sm sel"
-											name="notice_type">
+										<td><select class="form-control input-sm sel" name="notice_type">
 												<option>개인</option>
 												<option>기관</option>
 
@@ -92,10 +82,7 @@
 
 								<tr>
 
-									<td class="t-text" colspan="9"><textarea
-											class="form-control" id="content" name="notice_content"
-											rows="15" cols="150" style="resize: none;">${notice.notice_content}</textarea>
-									</td>
+									<td class="t-text" colspan="9"><textarea class="form-control" id="content" name="notice_content" rows="15" cols="150" style="resize: none;">${notice.notice_content}</textarea></td>
 								</tr>
 
 
