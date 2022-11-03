@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
@@ -10,13 +9,11 @@
 
 <div class="container-fluid" id="wrapper">
 	<div class="row">
-		<div class="col-md-2">
-		
-		</div>
+		<div class="col-md-2"></div>
 
 		<div class="col-md-8">
 			<h4>나의 접수 내역 조회</h4>
-			
+
 			<!--form select를 가져온다 -->
 			<%-- <form action="<c:url value='/mypage/mypage_assistant_history' />">
 		    	<div class="apply-search-wrap clearfix">
@@ -28,46 +25,44 @@
                     </select>
                 </div>
 		    </form> --%>
-			
+
 			<table class="table table-hover apply-history-table">
 				<thead class="#">
 					<tr>
-						<th>번호</th> 
-						<th>개인/기관</th> 
+						<!-- <th>번호</th>  -->
+						<th>개인/기관</th>
 						<th>신청 조력자 유형</th>
 						<th>접수 상태</th>
 						<th>사무소명</th>
-						<th>접수 날짜</th> <!-- 0825 최필규 저녁 수정 여기입니다!!!! -->
+						<th>접수 날짜</th>
+						<!-- 0825 최필규 저녁 수정 여기입니다!!!! -->
 						<th>상세</th>
 						<th>정보 수정</th>
 					</tr>
 				</thead>
 				<tbody>
-					
-					
+
+
 					<c:forEach var="list" items="${mypageList.assistantRegist}">
-							<c:if test="${list.assistant_id !=0}">
-						<tr>
-							<td>${list.assistant_id}</td>
-							<td>${list.helper_cateogry_select}</td>
-							<td>${list.helepr_articleboard}</td>
-							<td>${list.helper_apply_status}</td>
-							<td>${list.helper_office_name}</td>
-							<td><fmt:formatDate value="${list.helper_regdate}" pattern="yyyy-MM-dd HH:mm" /></td>  <!-- 0829 최필규 수정 -->
-							<td><a 
-								href="<c:url value='/mypage/getApplyDetail/${list.assistant_id}' />">보기</a>
-							</td>
-							<td><a 
-								href="<c:url value='/mypage/mypage_update_info/${list.assistant_id}' />">보기</a>
-							</td>
-							</c:if> 
+						<c:if test="${list.assistant_id !=0}">
+							<tr>
+								<%-- <td>${list.assistant_id}</td> --%>
+								<td>${list.helper_cateogry_select}</td>
+								<td>${list.helepr_articleboard}</td>
+								<td>${list.helper_apply_status}</td>
+								<td>${list.helper_office_name}</td>
+								<td><fmt:formatDate value="${list.helper_regdate}" pattern="yyyy-MM-dd HH:mm" /></td>
+								<!-- 0829 최필규 수정 -->
+								<td><a href="<c:url value='/mypage/getApplyDetail/${list.assistant_id}' />">보기</a></td>
+								<td><a href="<c:url value='/mypage/mypage_update_info/${list.assistant_id}' />">보기</a></td>
+						</c:if>
 						</tr>
-					
+
 					</c:forEach>
-					
-			
-					
-					
+
+
+
+
 				</tbody>
 			</table>
 
@@ -94,8 +89,8 @@
 					</ul>
 				</div> --%>
 
-				<!-- 페이지 관련 버튼(이전, 다음, 페이지번호)을 클릭 시 같이 숨겨서 보내줄 공통 값  -->
-				<%-- <input type="hidden" name="pageNum" value="${pc.paging.pageNum}"> 
+			<!-- 페이지 관련 버튼(이전, 다음, 페이지번호)을 클릭 시 같이 숨겨서 보내줄 공통 값  -->
+			<%-- <input type="hidden" name="pageNum" value="${pc.paging.pageNum}"> 
 				<input type="hidden" name="cpp" value="${pc.paging.cpp}"> 
 				<input type="hidden" name="condition" value="${pc.paging.condition}"> 
 				<input type="hidden" name="keyword" value="${pc.paging.keyword}">
@@ -105,7 +100,7 @@
 	</div>
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp" %> 
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <!-------------------------------- script ------------------------------>
 <!-- <script>
 	$(function() {
