@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 
-	<div class="container-fluid" id="wrapper">
-		<div class="row text-center">
-			<%-- <div class="col-md-2">
+<div class="container-fluid" id="wrapper">
+	<div class="row text-center">
+		<%-- <div class="col-md-2">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title">마이페이지</h3>
@@ -27,35 +26,31 @@
 				</div>
 			</div> --%>
 
-			<div class="col-lg-4 col-md-4 col-xs-4"></div>
-			
-			<div class="col-lg-4 col-md-4 col-xs-4 userCheckForm">
-				<div class="pwChk-titlebox"><h4>안전한 이용을 위해, 비밀번호를 확인해 주세요.</h4></div>
-				<form
-					action="${pageContext.request.contextPath}/mypage/pwSuccess"
-					method="post" id="userCheckForm">
-					<div class="form-group">
-						<!--사용자클래스선언-->
-						<label for="id">아이디</label> <input type="text" name="userId"
-							class="form-control" id="userId" readonly="readonly"
-							value="${loginId}">
-					</div>
-					<div class="form-group">
-						<!--사용자클래스선언-->
-						<label for="id">비밀번호</label> <input type="password" name="userPw"
-							class="form-control" id="userPw" placeholder="비밀번호를 입력하세요.">
-					</div>
-					<div class="form-group">
-						<button type="button" id="userCheckBtn"
-							class="btn btn-primary btn-block">확인</button>
-					</div>
-				</form>
+		<div class="col-lg-4 col-md-4 col-xs-4"></div>
+
+		<div class="col-lg-4 col-md-4 col-xs-4 userCheckForm">
+			<div class="pwChk-titlebox">
+				<h4>안전한 이용을 위해, 비밀번호를 확인해 주세요.</h4>
 			</div>
+			<form action="${pageContext.request.contextPath}/mypage/pwSuccess" method="post" id="userCheckForm">
+				<div class="form-group">
+					<!--사용자클래스선언-->
+					<label for="id">아이디</label> <input type="text" name="userId" class="form-control" id="userId" readonly="readonly" value="${loginId}">
+				</div>
+				<div class="form-group">
+					<!--사용자클래스선언-->
+					<label for="id">비밀번호</label> <input type="password" name="userPw" class="form-control" id="userPw" placeholder="비밀번호를 입력하세요.">
+				</div>
+				<div class="form-group">
+					<button type="button" id="userCheckBtn" class="btn btn-primary btn-block">확인</button>
+				</div>
+			</form>
 		</div>
 	</div>
+</div>
 
 
-<%@ include file="/WEB-INF/views/include/footer.jsp" %> 
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script>
 		$(function() {
