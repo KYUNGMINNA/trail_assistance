@@ -1,11 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ include file="../include/header.jsp"%>
-
-<%-- <link href="${pageContext.request.contextPath }/resources/css/choiCss.css" rel="stylesheet"> --%>
-
 <style>
 .join-wrap {
 	text-align: center;
@@ -30,29 +25,22 @@
 }
 
 .icon-wrap img {
-    margin: 0 130px;
+	margin: 0 130px;
 }
-
 </style>
-
-
 <div class="container-fluid join-wrap text-center" id="wrapper">
 	<h1 class="join-title">조력자 유형 선택</h1>
 	<span>본인이 해당하는 조력자 유형을 선택해 주세요.</span> <br> <br>
 
 	<div class="join-select">
 		<div class="join-btn-wrap">
-			<button id="join-user-btn" type="button"
-				class="btn btn-default btn-primary"
-				onclick="location.href='<c:url value='/assistant/userSelect' />'">
+			<button id="join-user-btn" type="button" class="btn btn-default btn-primary" onclick="location.href='<c:url value='/assistant/userSelect' />'">
 				<div>
 					<img width="100px" src="../resources/img/user.svg" alt="user">
 				</div>
 				개 인
 			</button>
-			<button id="join-com-btn" type="button"
-				onclick="location.href='<c:url value='/assistant/comSelect' />'"
-				class="btn btn-default btn-info">
+			<button id="join-com-btn" type="button" onclick="location.href='<c:url value='/assistant/comSelect' />'" class="btn btn-default btn-info">
 				<div>
 					<img width="100px" src="../resources/img/company.svg" alt="company">
 				</div>
@@ -61,10 +49,7 @@
 		</div>
 	</div>
 </div>
-
-<%@ include file="/WEB-INF/views/include/footer.jsp" %> 
-
-
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 <script>
         // 개인 회원가입 버튼 이벤트
         $('#join-user-btn').on('click', function () {
