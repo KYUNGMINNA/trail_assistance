@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../include/header.jsp"%>
@@ -8,8 +7,6 @@
 	z-index: 0;
 	background-color: #fff;
 }
-
-
 
 .footer-bs {
 	background-color: #333;
@@ -138,8 +135,7 @@ footer li a {
 			<!-- 중앙 공간-->
 			<h2>조력자 신청</h2>
 
-			<form action="<c:url value='/assistant/update'/>" method="post"
-				name="helper_assistant">
+			<form action="<c:url value='/assistant/update'/>" method="post" name="helper_assistant">
 				<div>
 					<h3>학력 사항</h3>
 					<div class="text-right">
@@ -168,10 +164,8 @@ footer li a {
 						<tbody>
 							<tr>
 								<td>증명 파일</td>
-								<td>
-									<input type="file" name="hepler_edu_file" id="hepler_edu_file">
-									<button type="button" class="btn-sm" id="helper_edu_fileUpload">등록하기</button>
-								</td>
+								<td><input type="file" name="hepler_edu_file" id="hepler_edu_file">
+									<button type="button" class="btn-sm" id="helper_edu_fileUpload">등록하기</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -206,10 +200,8 @@ footer li a {
 						<tbody>
 							<tr>
 								<td>증명 파일</td>
-								<td>
-									<input type="file" name="hepler_career_file" id="hepler_career_file">
-									<button type="button" class="btn-sm" id="hepler_career_fileUpload">등록하기</button>
-								</td>
+								<td><input type="file" name="hepler_career_file" id="hepler_career_file">
+									<button type="button" class="btn-sm" id="hepler_career_fileUpload">등록하기</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -244,10 +236,8 @@ footer li a {
 						<tbody>
 							<tr>
 								<td>증명 파일</td>
-								<td>
-									<input type="file" name="hepler_license_file" id="hepler_license_file">
-									<button type="button" class="btn-sm" id="hepler_license_fileUpload">등록하기</button>
-								</td>
+								<td><input type="file" name="hepler_license_file" id="hepler_license_file">
+									<button type="button" class="btn-sm" id="hepler_license_fileUpload">등록하기</button></td>
 							</tr>
 						</tbody>
 
@@ -271,14 +261,12 @@ footer li a {
 		<!-- Modal -->
 
 
-		<div class="modal fade" id="edu_info" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="edu_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4>학력사항 입력</h4>
@@ -290,18 +278,15 @@ footer li a {
 							<tbody>
 								<tr>
 									<td>학교명</td>
-									<td colspan="3"><input type="text" class="form-control"
-										name="helper_school_name" id="helper_school_name"  maxlength="10" >
+									<td colspan="3"><input type="text" class="form-control" name="helper_school_name" id="helper_school_name" maxlength="10">
 										<div id="helper_school_name_chk" class="text-center"></div></td>
 								</tr>
 								<tr>
 									<td>학과(전공)</td>
-									<td><input type="text" class="form-control"  maxlength="20" 
-										name="helper_school_major" id="helper_school_major">
+									<td><input type="text" class="form-control" maxlength="20" name="helper_school_major" id="helper_school_major">
 										<div id="helper_school_major_chk" class="text-center"></div></td>
 									<td>학위</td>
-									<td><select class="form-control" name="helper_education"
-										id="helper_education">
+									<td><select class="form-control" name="helper_education" id="helper_education">
 											<option value="" selected>최종 학위</option>
 											<option value="">대학교 수료</option>
 											<option value="">대학원 졸업</option>
@@ -313,16 +298,11 @@ footer li a {
 								</tr>
 								<tr>
 									<td>입학 년월</td>
-									<td><input type="text" class="form-control"
-										name="helper_school_admission" id="helper_school_admission"
-										placeholder="2010-03">
+									<td><input type="text" class="form-control" name="helper_school_admission" id="helper_school_admission" placeholder="2010-03">
 										<div id="helper_school_admission_chk" class="text-center"></div></td>
 									<td>졸업 년월</td>
-									<td><input type="text" class="form-control"
-										name="helper_school_graduate" id="helper_school_graduate"
-										placeholder="2020-03">
-										<div id="helper_school_graduate_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" class="form-control" name="helper_school_graduate" id="helper_school_graduate" placeholder="2020-03">
+										<div id="helper_school_graduate_chk" class="text-center"></div></td>
 								</tr>
 
 
@@ -341,14 +321,12 @@ footer li a {
 
 		<!--수정용 모달 -->
 
-		<div class="modal fade" id="edu_modify_modal" tabindex="-1"
-			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="edu_modify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4>수정모달 입력</h4>
@@ -361,19 +339,15 @@ footer li a {
 							<tbody>
 								<tr>
 									<td>학교명</td>
-									<td colspan="3"><input type="text" class="form-control" maxlength="10" 
-										name="modi_helper_school_name" id="modi_helper_school_name">
-										<div id="modi_helper_school_name_chk" class="text-center"></div>
-									</td>
+									<td colspan="3"><input type="text" class="form-control" maxlength="10" name="modi_helper_school_name" id="modi_helper_school_name">
+										<div id="modi_helper_school_name_chk" class="text-center"></div></td>
 								</tr>
 								<tr>
 									<td>학과(전공)</td>
-									<td><input type="text" class="form-control" maxlength="20" 
-										name="modi_helper_school_major" id="modi_helper_school_major">
+									<td><input type="text" class="form-control" maxlength="20" name="modi_helper_school_major" id="modi_helper_school_major">
 										<div id="modi_helper_school_major_chk" class="text-center"></div></td>
 									<td>학위</td>
-									<td><select class="form-control"
-										name="modi_helper_education" id="modi_helper_education">
+									<td><select class="form-control" name="modi_helper_education" id="modi_helper_education">
 											<option value="">최종 학위</option>
 											<option value="">대학교 수료</option>
 											<option value="">대학원 졸업</option>
@@ -387,17 +361,11 @@ footer li a {
 
 
 									<td>입학 년월</td>
-									<td><input type="text" class="form-control"
-										name="modi_helper_school_admission"
-										id="modi_helper_school_admission">
-										<div id="modi_helper_school_admission_chk" calss="text-center"></div>
-									</td>
+									<td><input type="text" class="form-control" name="modi_helper_school_admission" id="modi_helper_school_admission">
+										<div id="modi_helper_school_admission_chk" calss="text-center"></div></td>
 									<td>졸업 년월</td>
-									<td><input type="text" class="form-control"
-										name="modi_helper_school_graduate"
-										id="modi_helper_school_graduate">
-										<div id="modi_helper_school_admission_chk" calss="text-center"></div>
-									</td>
+									<td><input type="text" class="form-control" name="modi_helper_school_graduate" id="modi_helper_school_graduate">
+										<div id="modi_helper_school_admission_chk" calss="text-center"></div></td>
 
 								</tr>
 
@@ -419,14 +387,12 @@ footer li a {
 
 
 		<!-- 경력  사항 모달  -->
-		<div class="modal fade" id="career_info" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="career_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4>경력사항 입력</h4>
@@ -438,32 +404,24 @@ footer li a {
 							<tbody>
 								<tr>
 									<td>회사명/활동기관명</td>
-									<td colspan="3"><input type="text"  maxlength="20" 
-										name="helper_career_name" id="helper_career_name">
+									<td colspan="3"><input type="text" maxlength="20" name="helper_career_name" id="helper_career_name">
 										<div id="helper_career_name_chk" class="text-center"></div></td>
 								</tr>
 								<tr>
 									<td>기간</td>
-									<td><input type="text" name="helper_career_period"
-										id="helper_career_period">
-										<div id="helper_career_period_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" name="helper_career_period" id="helper_career_period">
+										<div id="helper_career_period_chk" class="text-center"></div></td>
 									<td>수행업무</td>
-									<td><input type="text" name="helper_career_wrok"  maxlength="20" 
-										id="helper_career_wrok">
+									<td><input type="text" name="helper_career_wrok" maxlength="20" id="helper_career_wrok">
 										<div id="helper_career_wrok_chk" class="text-center"></div></td>
 								</tr>
 								<tr>
 									<td>부서</td>
-									<td><input type="text" name="helper_career_department"  maxlength="20" 
-										id="helper_career_department">
-										<div id="helper_career_department_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" name="helper_career_department" maxlength="20" id="helper_career_department">
+										<div id="helper_career_department_chk" class="text-center"></div></td>
 									<td>직책</td>
-									<td><input type="text" name="helper_career_position"  maxlength="10" 
-										id="helper_career_position">
-										<div id="helper_career_position_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" name="helper_career_position" maxlength="10" id="helper_career_position">
+										<div id="helper_career_position_chk" class="text-center"></div></td>
 								</tr>
 
 							</tbody>
@@ -480,14 +438,12 @@ footer li a {
 
 		<!-- 경력사항 수정용 모달 -->
 
-		<div class="modal fade" id="modi_career_info" tabindex="-1"
-			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modi_career_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4>경력사항 수정</h4>
@@ -498,35 +454,24 @@ footer li a {
 							<tbody>
 								<tr>
 									<td>회사명/활동기관명</td>
-									<td colspan="3"><input type="text"  maxlength="20" 
-										name="modi_helper_career_name" id="modi_helper_career_name">
-										<div id="modi_helper_career_name_chk" class="text-center"></div>
-									</td>
+									<td colspan="3"><input type="text" maxlength="20" name="modi_helper_career_name" id="modi_helper_career_name">
+										<div id="modi_helper_career_name_chk" class="text-center"></div></td>
 								</tr>
 								<tr>
 									<td>기간</td>
-									<td><input type="text" name="modi_helper_career_period"
-										id="modi_helper_career_period">
-										<div id="modi_helper_career_period_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" name="modi_helper_career_period" id="modi_helper_career_period">
+										<div id="modi_helper_career_period_chk" class="text-center"></div></td>
 									<td>수행업무</td>
-									<td><input type="text" name="modi_helper_career_wrok"  maxlength="20" 
-										id="modi_helper_career_wrok">
-										<div id="modi_helper_career_wrok_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" name="modi_helper_career_wrok" maxlength="20" id="modi_helper_career_wrok">
+										<div id="modi_helper_career_wrok_chk" class="text-center"></div></td>
 								</tr>
 								<tr>
 									<td>부서</td>
-									<td><input type="text"  maxlength="20" 
-										name="modi_helper_career_department"
-										id="modi_helper_career_department">
-										<div id="modi_helper_career_department_chk"
-											class="text-center"></div></td>
+									<td><input type="text" maxlength="20" name="modi_helper_career_department" id="modi_helper_career_department">
+										<div id="modi_helper_career_department_chk" class="text-center"></div></td>
 									<td>직책</td>
-									<td><input type="text" name="modi_helper_career_position"  maxlength="20" 
-										id="modi_helper_career_position">
-										<div id="modi_helper_career_position_chk" class="text-center"></div>
-									</td>
+									<td><input type="text" name="modi_helper_career_position" maxlength="20" id="modi_helper_career_position">
+										<div id="modi_helper_career_position_chk" class="text-center"></div></td>
 
 								</tr>
 
@@ -547,62 +492,52 @@ footer li a {
 
 		<!--자격 및 면허 사항 모달-->
 
-		<div class="modal fade" id="license_info" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="license_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4>면허사항 입력</h4>
 					</div>
 
 
-			  
-                    <div class="modal-body">
-                        <table class="table table-bordered">
-                            <tbody>
-                                <tr>
-                                    <td>종목/등급 명</td>
-                                    <td>
-                                        <input type="text"  maxlength="20" class="form-control" name="helper_license_name" id="helper_license_name">
-                                        <div id="helper_license_name_chk" class="text-center"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>발급기관</td>
-                                    <td>
-                                        <input type="text" class="form-control"  maxlength="20" name="helper_license_agency" id="helper_license_agency">
-                                        <div id="helper_license_agency_chk" class="text-center"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>자격/면허 번호</td>
-                                    <td>
-                                        <input type="text" class="form-control"  maxlength="20" name="helper_license_num" id="helper_license_num">
-                                        <div id="helper_license_num_chk" class="text-center"></div>
-                                    </td>
-                                        
-                                   
-                                </tr>
-                                <tr>
-                                    <td>발급일</td>
-                                    <td>
-                                        <input type="text" class="form-control" name="helper_license_date" id="helper_license_date" placeholder="2022-03-02">
-                                        <div id="helper_license_date_chk" class="text-center"></div>
-                                    </td>
-                                    
-                                </tr>
 
-                            </tbody>
-                        </table>
-                        <div class="text-center">
-                            <button type="button" class="license_btn">입력</button>
-                        </div>
-                    </div>
+					<div class="modal-body">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>종목/등급 명</td>
+									<td><input type="text" maxlength="20" class="form-control" name="helper_license_name" id="helper_license_name">
+										<div id="helper_license_name_chk" class="text-center"></div></td>
+								</tr>
+								<tr>
+									<td>발급기관</td>
+									<td><input type="text" class="form-control" maxlength="20" name="helper_license_agency" id="helper_license_agency">
+										<div id="helper_license_agency_chk" class="text-center"></div></td>
+								</tr>
+								<tr>
+									<td>자격/면허 번호</td>
+									<td><input type="text" class="form-control" maxlength="20" name="helper_license_num" id="helper_license_num">
+										<div id="helper_license_num_chk" class="text-center"></div></td>
+
+
+								</tr>
+								<tr>
+									<td>발급일</td>
+									<td><input type="text" class="form-control" name="helper_license_date" id="helper_license_date" placeholder="2022-03-02">
+										<div id="helper_license_date_chk" class="text-center"></div></td>
+
+								</tr>
+
+							</tbody>
+						</table>
+						<div class="text-center">
+							<button type="button" class="license_btn">입력</button>
+						</div>
+					</div>
 
 
 
@@ -612,57 +547,48 @@ footer li a {
 
 		<!-- 경력사항 수정용 모달 -->
 
-		<div class="modal fade" id="modi_license_info" tabindex="-1"
-			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modi_license_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4>면허사항 수정</h4>
 					</div>
 
 
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <td>종목/등급 명</td>
-                                <td>
-                                    <input type="text" class="form-control" maxlength="20" name="modi_helper_license_name" id="modi_helper_license_name">
-                                    <div id="modi_helper_license_name_chk" class="text-center"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>발급기관</td>
-                                <td>
-                                    <input type="text" maxlength="20" class="form-control"name="modi_helper_license_agency" id="modi_helper_license_agency">
-                                    <div id="modi_helper_license_agency_chk" class="text-center"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>자격/면허 번호</td>
-                                <td>
-                                    <input type="text" maxlength="20" class="form-control"name="modi_helper_license_num" id="modi_helper_license_num">
-                                    <div id="modi_helper_license_num_chk" class="text-center"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>발급일</td>
-                                <td><input type="text" class="form-control"name="modi_helper_license_date" id="modi_helper_license_date" placeholder="2022-03-02">
-                                <div id="modi_helper_license_date_chk" class="text-center"></div>
-                                </td>
-                            </tr>
+					<div class="modal-body">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>종목/등급 명</td>
+									<td><input type="text" class="form-control" maxlength="20" name="modi_helper_license_name" id="modi_helper_license_name">
+										<div id="modi_helper_license_name_chk" class="text-center"></div></td>
+								</tr>
+								<tr>
+									<td>발급기관</td>
+									<td><input type="text" maxlength="20" class="form-control" name="modi_helper_license_agency" id="modi_helper_license_agency">
+										<div id="modi_helper_license_agency_chk" class="text-center"></div></td>
+								</tr>
+								<tr>
+									<td>자격/면허 번호</td>
+									<td><input type="text" maxlength="20" class="form-control" name="modi_helper_license_num" id="modi_helper_license_num">
+										<div id="modi_helper_license_num_chk" class="text-center"></div></td>
+								</tr>
+								<tr>
+									<td>발급일</td>
+									<td><input type="text" class="form-control" name="modi_helper_license_date" id="modi_helper_license_date" placeholder="2022-03-02">
+										<div id="modi_helper_license_date_chk" class="text-center"></div></td>
+								</tr>
 
-                        </tbody>
-                    </table>
-                    <div class="text-center">
-                        <button type="button" class="modi_license_btn">수정</button>
-                    </div>
-                </div>
+							</tbody>
+						</table>
+						<div class="text-center">
+							<button type="button" class="modi_license_btn">수정</button>
+						</div>
+					</div>
 
 
 				</div>
@@ -679,55 +605,52 @@ footer li a {
 </div>
 
 
-	<footer class="footer-bs">
-		<div class="row">
-			<div class="col-md-3 footer-brand animated fadeInLeft">
-				<h2>온라인감정신청</h2>
-				<p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam
-					porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget
-					faucibus faucibus, purus erat eleifend enim, porta pellentesque ex
-					mi ut sem.</p>
-				<p>© All Rights Reserved</p>
-			</div>
-			<div class="col-md-4 footer-nav animated fadeInUp">
-				<h4>안내</h4>
-				<div class="col-md-6">
-					<ul class="pages">
-						<li><a href="#">주소</a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#">서울시 강남구 강남대로</a></li>
-						<li><a href="#">강남아파트</a></li>
-						<li><a href="#">강남빌딩 7층 비트코인사무실</a></li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<ul class="list">
-						<li><a href="#">담당자 번호</a></li>
-						<li><a href="#">02-747-1234</a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#">팩스 번호</a></li>
-						<li><a href="#">777-1111-2222</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-3 footer-social animated fadeInDown text-center">
-				<h4>BitCoin</h4>
-				<ul>
-					<li><a href="#">나경민</a></li>
-					<li><a href="#">성민호</a></li>
-					<li><a href="#">최필규</a></li>
-					<li><a href="#">정승구</a></li>
-					<li><a href="#">천용혁</a></li>
-					<li><a href="#">황교욱</a></li>
+<footer class="footer-bs">
+	<div class="row">
+		<div class="col-md-3 footer-brand animated fadeInLeft">
+			<h2>온라인감정신청</h2>
+			<p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+			<p>© All Rights Reserved</p>
+		</div>
+		<div class="col-md-4 footer-nav animated fadeInUp">
+			<h4>안내</h4>
+			<div class="col-md-6">
+				<ul class="pages">
+					<li><a href="#">주소</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#">서울시 강남구 강남대로</a></li>
+					<li><a href="#">강남아파트</a></li>
+					<li><a href="#">강남빌딩 7층 비트코인사무실</a></li>
 				</ul>
 			</div>
-			<div class="col-md-2 footer-ns animated fadeInRight">
-				<h4>Newsletter</h4>
-				<p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-				<p></p>
+			<div class="col-md-6">
+				<ul class="list">
+					<li><a href="#">담당자 번호</a></li>
+					<li><a href="#">02-747-1234</a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#">팩스 번호</a></li>
+					<li><a href="#">777-1111-2222</a></li>
+				</ul>
 			</div>
 		</div>
-	</footer>
+		<div class="col-md-3 footer-social animated fadeInDown text-center">
+			<h4>BitCoin</h4>
+			<ul>
+				<li><a href="#">나경민</a></li>
+				<li><a href="#">성민호</a></li>
+				<li><a href="#">최필규</a></li>
+				<li><a href="#">정승구</a></li>
+				<li><a href="#">천용혁</a></li>
+				<li><a href="#">황교욱</a></li>
+			</ul>
+		</div>
+		<div class="col-md-2 footer-ns animated fadeInRight">
+			<h4>Newsletter</h4>
+			<p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+			<p></p>
+		</div>
+	</div>
+</footer>
 
 
 
@@ -784,7 +707,8 @@ var modi_helper_license_date_chk=false;
     //jquery 시작
     $(document).ready(function(){
 
-    	
+    	//정규 표현식 테스트
+     	
     	///학력사향 입력 시 공백 체크 및 정규표현식 체크 시작
     	
     	  //학교명 공백 체크 
@@ -1240,9 +1164,14 @@ $('#modi_helper_license_name').keyup(function(){
             })
 
 	
-	
+	 
 	
 	//면허사항 정규 표현식 끝 
+	
+	
+	
+	
+	
 		
 
         // 학력 사항 입력할 때 동적으로 여러개 입력 할 수 있게 하였음 
@@ -1939,8 +1868,11 @@ $('#modi_helper_license_name').keyup(function(){
 
         //신청 버튼 클릭
         $(document).on('click','.submit_btn',function(e){
+        	
         	e.preventDefault();
-            if($('.info_insert').children().length===0){
+        	
+        	
+             if($('.info_insert').children().length===0){
                 alert('학력 사항을 입력하세요');
                 return
             }else if($('.career_insert').children().length===0){
@@ -1953,7 +1885,9 @@ $('#modi_helper_license_name').keyup(function(){
                 $('form').submit();
             }
           
-           
+            
+            
+
               
             });
 		
